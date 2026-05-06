@@ -1,0 +1,79 @@
+{
+  "objects": {
+    "LAN_A": "192.168.10.0/24",
+    "PC1": "192.168.10.10/32",
+    "PC2": "192.168.10.20/32",
+    "PC3": "192.168.10.30/32",
+    "PC6": "192.168.10.40/32",
+    
+    "DMZ": "192.168.20.0/24",
+    "WEB1": "192.168.20.10/32",
+    "APP1": "192.168.20.20/32",
+    
+    "LAN_B": "192.168.30.0/24",
+    "PC4": "192.168.30.10/32",
+    "PC5": "192.168.30.20/32",
+    "PC7": "192.168.30.30/32",
+    "PC8": "192.168.30.40/32",
+
+    "ISP": "203.0.113.1/32",
+    "Internet": "0.0.0.0/0",
+    
+    "R1_LAN_A_IP": "192.168.10.1/32",
+    "R1_R2_IP": "10.0.12.1/32",
+    
+    "R2_R1_IP": "10.0.12.2/32",
+    "R2_R3_IP": "10.0.23.1/32",
+    "R2_WAN_IP": "203.0.113.2/32",
+    
+    "R3_R2_IP": "10.0.23.2/32",
+    "R3_DMZ_IP": "192.168.20.1/32",
+    "R3_LAN_B_IP": "192.168.30.1/32",
+    
+    "WAN_ISP_LINK": "203.0.113.0/30"
+  },
+  "switches": {
+  "SW1": {
+    "role": "access",
+    "vlan": 10,
+    "connected_to": ["R1:f0/0"],
+    "hosts": ["PC1", "PC2", "PC3", "PC6"]
+  },
+  "SW2": {
+    "role": "access",
+    "vlan": 20,
+    "connected_to": ["R3:f0/1"],
+    "hosts": ["WEB1", "APP1"]
+  },
+  "SW3": {
+    "role": "access",
+    "vlan": 30,
+    "connected_to": ["R3:f0/0"],
+    "hosts": ["PC4", "PC5", "PC7", "PC8"]
+  }
+},
+ "interfaces": {
+    "R1": {
+      "f0/0": { "role": "LAN_A", "ip": "192.168.10.1/24", "connected_to": "SW1" },
+      "s0/1": { "role": "TRANSIT_TO_R2", "ip": "10.0.12.1/30", "connected_to": "R2:s0/0" }
+    },
+    "R2": {
+      "s0/0": { "role": "TRANSIT_TO_R1", "ip": "10.0.12.2/30", "connected_to": "R1:s0/1" },
+      "s0/1": { "role": "TRANSIT_TO_R3", "ip": "10.0.23.1/30", "connected_to": "R3:s0/0" },
+      "f0/0": { "role": "WAN", "ip": "203.0.113.2/30", "connected_to": "ISP" }
+    },
+    "R3": {
+      "s0/0": { "role": "TRANSIT_TO_R2", "ip": "10.0.23.2/30", "connected_to": "R2:s0/1" },
+      "f0/1": { "role": "DMZ", "ip": "192.168.20.1/24", "connected_to": "SW2" },
+      "f0/0": { "role": "LAN_B", "ip": "192.168.30.1/24", "connected_to": "SW3" }
+    }
+  },
+  "services": {
+    "HTTP": { "protocol": "tcp", "port": 80 },
+    "HTTPS": { "protocol": "tcp", "port": 443 },
+    "DNS": { "protocol": "udp", "port": 53 },
+    "SSH": { "protocol": "tcp", "port": 22 },
+    "TELNET": { "protocol": "tcp", "port": 23 },
+    "ICMP": { "protocol": "icmp", "port": null }
+  }
+}

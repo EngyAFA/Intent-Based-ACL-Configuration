@@ -1,0 +1,1345 @@
+{
+  "HardCasesBenchmark": [
+    {
+      "case_id": "hard_shadow_001",
+      "hard_type": "shadowed_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R1",
+      "target_acl": "ACL_R1_F0_0_IN",
+      "target_acl_attachment": {
+        "router": "R1",
+        "interface": "f0/0",
+        "direction": "in"
+      },
+      "input_rule": {
+        "action": "permit",
+        "protocol": "udp",
+        "src_ip": "192.168.10.30/32",
+        "dst_ip": "192.168.20.10/32",
+        "dst_port": 53,
+        "interface": "f0/0",
+        "direction": "in",
+        "sequence": 9999
+      },
+      "shadowing_context": {
+        "earlier_rule": {
+          "router": "R1",
+          "interface": "f0/0",
+          "direction": "in",
+          "acl_name": "ACL_R1_F0_0_IN",
+          "sequence": 1170,
+          "action": "permit",
+          "protocol": "udp",
+          "src": "192.168.10.30/32",
+          "dst": "0.0.0.0/0",
+          "dst_port": 53,
+          "raw_line": "1170 permit udp host 192.168.10.30 any eq 53"
+        },
+        "later_rule": {
+          "router": "R1",
+          "interface": "f0/0",
+          "direction": "in",
+          "acl_name": "ACL_R1_F0_0_IN",
+          "sequence": 1750,
+          "action": "deny",
+          "protocol": "udp",
+          "src": "192.168.10.30/32",
+          "dst": "192.168.20.10/32",
+          "dst_port": 53,
+          "raw_line": "1750 deny udp host 192.168.10.30 host 192.168.20.10 eq 53"
+        }
+      }
+    },
+    {
+      "case_id": "hard_shadow_002",
+      "hard_type": "shadowed_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R1",
+      "target_acl": "ACL_R1_S0_1_OUT",
+      "target_acl_attachment": {
+        "router": "R1",
+        "interface": "s0/1",
+        "direction": "out"
+      },
+      "input_rule": {
+        "action": "permit",
+        "protocol": "tcp",
+        "src_ip": "192.168.10.0/24",
+        "dst_ip": "192.168.30.20/32",
+        "dst_port": 80,
+        "interface": "s0/1",
+        "direction": "out",
+        "sequence": 9999
+      },
+      "shadowing_context": {
+        "earlier_rule": {
+          "router": "R1",
+          "interface": "s0/1",
+          "direction": "out",
+          "acl_name": "ACL_R1_S0_1_OUT",
+          "sequence": 270,
+          "action": "permit",
+          "protocol": "tcp",
+          "src": "192.168.10.0/24",
+          "dst": "0.0.0.0/0",
+          "dst_port": 80,
+          "raw_line": "270 permit tcp 192.168.10.0 0.0.0.255 any eq 80"
+        },
+        "later_rule": {
+          "router": "R1",
+          "interface": "s0/1",
+          "direction": "out",
+          "acl_name": "ACL_R1_S0_1_OUT",
+          "sequence": 380,
+          "action": "deny",
+          "protocol": "tcp",
+          "src": "192.168.10.0/24",
+          "dst": "192.168.30.20/32",
+          "dst_port": 80,
+          "raw_line": "380 deny tcp 192.168.10.0 0.0.0.255 host 192.168.30.20 eq 80"
+        }
+      }
+    },
+    {
+      "case_id": "hard_shadow_003",
+      "hard_type": "shadowed_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R1",
+      "target_acl": "ACL_R1_S0_1_OUT",
+      "target_acl_attachment": {
+        "router": "R1",
+        "interface": "s0/1",
+        "direction": "out"
+      },
+      "input_rule": {
+        "action": "permit",
+        "protocol": "tcp",
+        "src_ip": "192.168.10.20/32",
+        "dst_ip": "192.168.20.10/32",
+        "dst_port": 80,
+        "interface": "s0/1",
+        "direction": "out",
+        "sequence": 9999
+      },
+      "shadowing_context": {
+        "earlier_rule": {
+          "router": "R1",
+          "interface": "s0/1",
+          "direction": "out",
+          "acl_name": "ACL_R1_S0_1_OUT",
+          "sequence": 270,
+          "action": "permit",
+          "protocol": "tcp",
+          "src": "192.168.10.0/24",
+          "dst": "0.0.0.0/0",
+          "dst_port": 80,
+          "raw_line": "270 permit tcp 192.168.10.0 0.0.0.255 any eq 80"
+        },
+        "later_rule": {
+          "router": "R1",
+          "interface": "s0/1",
+          "direction": "out",
+          "acl_name": "ACL_R1_S0_1_OUT",
+          "sequence": 830,
+          "action": "deny",
+          "protocol": "tcp",
+          "src": "192.168.10.20/32",
+          "dst": "192.168.20.10/32",
+          "dst_port": 80,
+          "raw_line": "830 deny tcp host 192.168.10.20 host 192.168.20.10 eq 80"
+        }
+      }
+    },
+    {
+      "case_id": "hard_shadow_004",
+      "hard_type": "shadowed_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R1",
+      "target_acl": "ACL_R1_S0_1_OUT",
+      "target_acl_attachment": {
+        "router": "R1",
+        "interface": "s0/1",
+        "direction": "out"
+      },
+      "input_rule": {
+        "action": "deny",
+        "protocol": "udp",
+        "src_ip": "192.168.10.30/32",
+        "dst_ip": "192.168.30.40/32",
+        "dst_port": 53,
+        "interface": "s0/1",
+        "direction": "out",
+        "sequence": 9999
+      },
+      "shadowing_context": {
+        "earlier_rule": {
+          "router": "R1",
+          "interface": "s0/1",
+          "direction": "out",
+          "acl_name": "ACL_R1_S0_1_OUT",
+          "sequence": 680,
+          "action": "deny",
+          "protocol": "udp",
+          "src": "192.168.10.30/32",
+          "dst": "192.168.30.0/24",
+          "dst_port": 53,
+          "raw_line": "680 deny udp host 192.168.10.30 192.168.30.0 0.0.0.255 eq 53"
+        },
+        "later_rule": {
+          "router": "R1",
+          "interface": "s0/1",
+          "direction": "out",
+          "acl_name": "ACL_R1_S0_1_OUT",
+          "sequence": 840,
+          "action": "permit",
+          "protocol": "udp",
+          "src": "192.168.10.30/32",
+          "dst": "192.168.30.40/32",
+          "dst_port": 53,
+          "raw_line": "840 permit udp host 192.168.10.30 host 192.168.30.40 eq 53"
+        }
+      }
+    },
+    {
+      "case_id": "hard_shadow_005",
+      "hard_type": "shadowed_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R1",
+      "target_acl": "ACL_R1_S0_1_OUT",
+      "target_acl_attachment": {
+        "router": "R1",
+        "interface": "s0/1",
+        "direction": "out"
+      },
+      "input_rule": {
+        "action": "deny",
+        "protocol": "udp",
+        "src_ip": "192.168.10.30/32",
+        "dst_ip": "192.168.30.10/32",
+        "dst_port": 53,
+        "interface": "s0/1",
+        "direction": "out",
+        "sequence": 9999
+      },
+      "shadowing_context": {
+        "earlier_rule": {
+          "router": "R1",
+          "interface": "s0/1",
+          "direction": "out",
+          "acl_name": "ACL_R1_S0_1_OUT",
+          "sequence": 680,
+          "action": "deny",
+          "protocol": "udp",
+          "src": "192.168.10.30/32",
+          "dst": "192.168.30.0/24",
+          "dst_port": 53,
+          "raw_line": "680 deny udp host 192.168.10.30 192.168.30.0 0.0.0.255 eq 53"
+        },
+        "later_rule": {
+          "router": "R1",
+          "interface": "s0/1",
+          "direction": "out",
+          "acl_name": "ACL_R1_S0_1_OUT",
+          "sequence": 1700,
+          "action": "permit",
+          "protocol": "udp",
+          "src": "192.168.10.30/32",
+          "dst": "192.168.30.10/32",
+          "dst_port": 53,
+          "raw_line": "1700 permit udp host 192.168.10.30 host 192.168.30.10 eq 53"
+        }
+      }
+    },
+    {
+      "case_id": "hard_shadow_006",
+      "hard_type": "shadowed_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R3",
+      "target_acl": "ACL_R3_F0_0_IN",
+      "target_acl_attachment": {
+        "router": "R3",
+        "interface": "f0/0",
+        "direction": "in"
+      },
+      "input_rule": {
+        "action": "permit",
+        "protocol": "tcp",
+        "src_ip": "192.168.30.40/32",
+        "dst_ip": "192.168.20.10/32",
+        "dst_port": 23,
+        "interface": "f0/0",
+        "direction": "in",
+        "sequence": 9999
+      },
+      "shadowing_context": {
+        "earlier_rule": {
+          "router": "R3",
+          "interface": "f0/0",
+          "direction": "in",
+          "acl_name": "ACL_R3_F0_0_IN",
+          "sequence": 30,
+          "action": "permit",
+          "protocol": "ip",
+          "src": "192.168.30.40/32",
+          "dst": "0.0.0.0/0",
+          "dst_port": null,
+          "raw_line": "30 permit ip host 192.168.30.40 any"
+        },
+        "later_rule": {
+          "router": "R3",
+          "interface": "f0/0",
+          "direction": "in",
+          "acl_name": "ACL_R3_F0_0_IN",
+          "sequence": 720,
+          "action": "deny",
+          "protocol": "tcp",
+          "src": "192.168.30.40/32",
+          "dst": "192.168.20.10/32",
+          "dst_port": 23,
+          "raw_line": "720 deny tcp host 192.168.30.40 host 192.168.20.10 eq 23"
+        }
+      }
+    },
+    {
+      "case_id": "hard_shadow_007",
+      "hard_type": "shadowed_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R3",
+      "target_acl": "ACL_R3_F0_0_IN",
+      "target_acl_attachment": {
+        "router": "R3",
+        "interface": "f0/0",
+        "direction": "in"
+      },
+      "input_rule": {
+        "action": "permit",
+        "protocol": "icmp",
+        "src_ip": "192.168.30.40/32",
+        "dst_ip": "203.0.113.1/32",
+        "dst_port": null,
+        "interface": "f0/0",
+        "direction": "in",
+        "sequence": 9999
+      },
+      "shadowing_context": {
+        "earlier_rule": {
+          "router": "R3",
+          "interface": "f0/0",
+          "direction": "in",
+          "acl_name": "ACL_R3_F0_0_IN",
+          "sequence": 30,
+          "action": "permit",
+          "protocol": "ip",
+          "src": "192.168.30.40/32",
+          "dst": "0.0.0.0/0",
+          "dst_port": null,
+          "raw_line": "30 permit ip host 192.168.30.40 any"
+        },
+        "later_rule": {
+          "router": "R3",
+          "interface": "f0/0",
+          "direction": "in",
+          "acl_name": "ACL_R3_F0_0_IN",
+          "sequence": 1440,
+          "action": "deny",
+          "protocol": "icmp",
+          "src": "192.168.30.40/32",
+          "dst": "203.0.113.1/32",
+          "dst_port": null,
+          "raw_line": "1440 deny icmp host 192.168.30.40 host 203.0.113.1"
+        }
+      }
+    },
+    {
+      "case_id": "hard_shadow_008",
+      "hard_type": "shadowed_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R3",
+      "target_acl": "ACL_R3_F0_1_IN",
+      "target_acl_attachment": {
+        "router": "R3",
+        "interface": "f0/1",
+        "direction": "in"
+      },
+      "input_rule": {
+        "action": "permit",
+        "protocol": "ip",
+        "src_ip": "192.168.20.10/32",
+        "dst_ip": "192.168.30.10/32",
+        "dst_port": null,
+        "interface": "f0/1",
+        "direction": "in",
+        "sequence": 9999
+      },
+      "shadowing_context": {
+        "earlier_rule": {
+          "router": "R3",
+          "interface": "f0/1",
+          "direction": "in",
+          "acl_name": "ACL_R3_F0_1_IN",
+          "sequence": 120,
+          "action": "permit",
+          "protocol": "tcp",
+          "src": "192.168.20.10/32",
+          "dst": "192.168.30.10/32",
+          "dst_port": 443,
+          "raw_line": "120 permit tcp host 192.168.20.10 host 192.168.30.10 eq 443"
+        },
+        "later_rule": {
+          "router": "R3",
+          "interface": "f0/1",
+          "direction": "in",
+          "acl_name": "ACL_R3_F0_1_IN",
+          "sequence": 420,
+          "action": "deny",
+          "protocol": "ip",
+          "src": "192.168.20.10/32",
+          "dst": "192.168.30.10/32",
+          "dst_port": null,
+          "raw_line": "420 deny ip host 192.168.20.10 host 192.168.30.10"
+        }
+      }
+    },
+    {
+      "case_id": "hard_shadow_009",
+      "hard_type": "shadowed_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R3",
+      "target_acl": "ACL_R3_F0_1_IN",
+      "target_acl_attachment": {
+        "router": "R3",
+        "interface": "f0/1",
+        "direction": "in"
+      },
+      "input_rule": {
+        "action": "permit",
+        "protocol": "tcp",
+        "src_ip": "192.168.20.10/32",
+        "dst_ip": "192.168.10.20/32",
+        "dst_port": 23,
+        "interface": "f0/1",
+        "direction": "in",
+        "sequence": 9999
+      },
+      "shadowing_context": {
+        "earlier_rule": {
+          "router": "R3",
+          "interface": "f0/1",
+          "direction": "in",
+          "acl_name": "ACL_R3_F0_1_IN",
+          "sequence": 1030,
+          "action": "permit",
+          "protocol": "ip",
+          "src": "192.168.20.10/32",
+          "dst": "0.0.0.0/0",
+          "dst_port": null,
+          "raw_line": "1030 permit ip host 192.168.20.10 any"
+        },
+        "later_rule": {
+          "router": "R3",
+          "interface": "f0/1",
+          "direction": "in",
+          "acl_name": "ACL_R3_F0_1_IN",
+          "sequence": 1060,
+          "action": "deny",
+          "protocol": "tcp",
+          "src": "192.168.20.10/32",
+          "dst": "192.168.10.20/32",
+          "dst_port": 23,
+          "raw_line": "1060 deny tcp host 192.168.20.10 host 192.168.10.20 eq 23"
+        }
+      }
+    },
+    {
+      "case_id": "hard_shadow_010",
+      "hard_type": "shadowed_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R3",
+      "target_acl": "ACL_R3_F0_1_IN",
+      "target_acl_attachment": {
+        "router": "R3",
+        "interface": "f0/1",
+        "direction": "in"
+      },
+      "input_rule": {
+        "action": "permit",
+        "protocol": "udp",
+        "src_ip": "192.168.20.10/32",
+        "dst_ip": "192.168.10.40/32",
+        "dst_port": 53,
+        "interface": "f0/1",
+        "direction": "in",
+        "sequence": 9999
+      },
+      "shadowing_context": {
+        "earlier_rule": {
+          "router": "R3",
+          "interface": "f0/1",
+          "direction": "in",
+          "acl_name": "ACL_R3_F0_1_IN",
+          "sequence": 1030,
+          "action": "permit",
+          "protocol": "ip",
+          "src": "192.168.20.10/32",
+          "dst": "0.0.0.0/0",
+          "dst_port": null,
+          "raw_line": "1030 permit ip host 192.168.20.10 any"
+        },
+        "later_rule": {
+          "router": "R3",
+          "interface": "f0/1",
+          "direction": "in",
+          "acl_name": "ACL_R3_F0_1_IN",
+          "sequence": 1210,
+          "action": "deny",
+          "protocol": "udp",
+          "src": "192.168.20.10/32",
+          "dst": "192.168.10.40/32",
+          "dst_port": 53,
+          "raw_line": "1210 deny udp host 192.168.20.10 host 192.168.10.40 eq 53"
+        }
+      }
+    },
+    {
+      "case_id": "hard_shadow_011",
+      "hard_type": "shadowed_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R3",
+      "target_acl": "ACL_R3_F0_1_IN",
+      "target_acl_attachment": {
+        "router": "R3",
+        "interface": "f0/1",
+        "direction": "in"
+      },
+      "input_rule": {
+        "action": "permit",
+        "protocol": "tcp",
+        "src_ip": "192.168.20.10/32",
+        "dst_ip": "192.168.10.0/24",
+        "dst_port": 22,
+        "interface": "f0/1",
+        "direction": "in",
+        "sequence": 9999
+      },
+      "shadowing_context": {
+        "earlier_rule": {
+          "router": "R3",
+          "interface": "f0/1",
+          "direction": "in",
+          "acl_name": "ACL_R3_F0_1_IN",
+          "sequence": 1030,
+          "action": "permit",
+          "protocol": "ip",
+          "src": "192.168.20.10/32",
+          "dst": "0.0.0.0/0",
+          "dst_port": null,
+          "raw_line": "1030 permit ip host 192.168.20.10 any"
+        },
+        "later_rule": {
+          "router": "R3",
+          "interface": "f0/1",
+          "direction": "in",
+          "acl_name": "ACL_R3_F0_1_IN",
+          "sequence": 1250,
+          "action": "deny",
+          "protocol": "tcp",
+          "src": "192.168.20.10/32",
+          "dst": "192.168.10.0/24",
+          "dst_port": 22,
+          "raw_line": "1250 deny tcp host 192.168.20.10 192.168.10.0 0.0.0.255 eq 22"
+        }
+      }
+    },
+    {
+      "case_id": "hard_shadow_012",
+      "hard_type": "shadowed_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R3",
+      "target_acl": "ACL_R3_F0_1_IN",
+      "target_acl_attachment": {
+        "router": "R3",
+        "interface": "f0/1",
+        "direction": "in"
+      },
+      "input_rule": {
+        "action": "permit",
+        "protocol": "tcp",
+        "src_ip": "192.168.20.10/32",
+        "dst_ip": "192.168.10.40/32",
+        "dst_port": 80,
+        "interface": "f0/1",
+        "direction": "in",
+        "sequence": 9999
+      },
+      "shadowing_context": {
+        "earlier_rule": {
+          "router": "R3",
+          "interface": "f0/1",
+          "direction": "in",
+          "acl_name": "ACL_R3_F0_1_IN",
+          "sequence": 1030,
+          "action": "permit",
+          "protocol": "ip",
+          "src": "192.168.20.10/32",
+          "dst": "0.0.0.0/0",
+          "dst_port": null,
+          "raw_line": "1030 permit ip host 192.168.20.10 any"
+        },
+        "later_rule": {
+          "router": "R3",
+          "interface": "f0/1",
+          "direction": "in",
+          "acl_name": "ACL_R3_F0_1_IN",
+          "sequence": 1710,
+          "action": "deny",
+          "protocol": "tcp",
+          "src": "192.168.20.10/32",
+          "dst": "192.168.10.40/32",
+          "dst_port": 80,
+          "raw_line": "1710 deny tcp host 192.168.20.10 host 192.168.10.40 eq 80"
+        }
+      }
+    },
+    {
+      "case_id": "hard_shadow_013",
+      "hard_type": "shadowed_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R3",
+      "target_acl": "ACL_R3_S0_0_OUT",
+      "target_acl_attachment": {
+        "router": "R3",
+        "interface": "s0/0",
+        "direction": "out"
+      },
+      "input_rule": {
+        "action": "deny",
+        "protocol": "ip",
+        "src_ip": "192.168.30.20/32",
+        "dst_ip": "203.0.113.1/32",
+        "dst_port": null,
+        "interface": "s0/0",
+        "direction": "out",
+        "sequence": 9999
+      },
+      "shadowing_context": {
+        "earlier_rule": {
+          "router": "R3",
+          "interface": "s0/0",
+          "direction": "out",
+          "acl_name": "ACL_R3_S0_0_OUT",
+          "sequence": 590,
+          "action": "deny",
+          "protocol": "tcp",
+          "src": "192.168.30.20/32",
+          "dst": "203.0.113.1/32",
+          "dst_port": 22,
+          "raw_line": "590 deny tcp host 192.168.30.20 host 203.0.113.1 eq 22"
+        },
+        "later_rule": {
+          "router": "R3",
+          "interface": "s0/0",
+          "direction": "out",
+          "acl_name": "ACL_R3_S0_0_OUT",
+          "sequence": 980,
+          "action": "permit",
+          "protocol": "ip",
+          "src": "192.168.30.20/32",
+          "dst": "203.0.113.1/32",
+          "dst_port": null,
+          "raw_line": "980 permit ip host 192.168.30.20 host 203.0.113.1"
+        }
+      }
+    },
+    {
+      "case_id": "hard_shadow_014",
+      "hard_type": "shadowed_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R3",
+      "target_acl": "ACL_R3_S0_0_OUT",
+      "target_acl_attachment": {
+        "router": "R3",
+        "interface": "s0/0",
+        "direction": "out"
+      },
+      "input_rule": {
+        "action": "deny",
+        "protocol": "tcp",
+        "src_ip": "192.168.20.10/32",
+        "dst_ip": "0.0.0.0/0",
+        "dst_port": 443,
+        "interface": "s0/0",
+        "direction": "out",
+        "sequence": 9999
+      },
+      "shadowing_context": {
+        "earlier_rule": {
+          "router": "R3",
+          "interface": "s0/0",
+          "direction": "out",
+          "acl_name": "ACL_R3_S0_0_OUT",
+          "sequence": 260,
+          "action": "deny",
+          "protocol": "tcp",
+          "src": "192.168.20.0/24",
+          "dst": "0.0.0.0/0",
+          "dst_port": 443,
+          "raw_line": "260 deny tcp 192.168.20.0 0.0.0.255 any eq 443"
+        },
+        "later_rule": {
+          "router": "R3",
+          "interface": "s0/0",
+          "direction": "out",
+          "acl_name": "ACL_R3_S0_0_OUT",
+          "sequence": 1070,
+          "action": "permit",
+          "protocol": "tcp",
+          "src": "192.168.20.10/32",
+          "dst": "0.0.0.0/0",
+          "dst_port": 443,
+          "raw_line": "1070 permit tcp host 192.168.20.10 any eq 443"
+        }
+      }
+    },
+    {
+      "case_id": "hard_shadow_015",
+      "hard_type": "shadowed_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R3",
+      "target_acl": "ACL_R3_S0_0_OUT",
+      "target_acl_attachment": {
+        "router": "R3",
+        "interface": "s0/0",
+        "direction": "out"
+      },
+      "input_rule": {
+        "action": "permit",
+        "protocol": "icmp",
+        "src_ip": "192.168.30.30/32",
+        "dst_ip": "192.168.10.20/32",
+        "dst_port": null,
+        "interface": "s0/0",
+        "direction": "out",
+        "sequence": 9999
+      },
+      "shadowing_context": {
+        "earlier_rule": {
+          "router": "R3",
+          "interface": "s0/0",
+          "direction": "out",
+          "acl_name": "ACL_R3_S0_0_OUT",
+          "sequence": 600,
+          "action": "permit",
+          "protocol": "ip",
+          "src": "192.168.30.30/32",
+          "dst": "192.168.10.20/32",
+          "dst_port": null,
+          "raw_line": "600 permit ip host 192.168.30.30 host 192.168.10.20"
+        },
+        "later_rule": {
+          "router": "R3",
+          "interface": "s0/0",
+          "direction": "out",
+          "acl_name": "ACL_R3_S0_0_OUT",
+          "sequence": 1100,
+          "action": "deny",
+          "protocol": "icmp",
+          "src": "192.168.30.30/32",
+          "dst": "192.168.10.20/32",
+          "dst_port": null,
+          "raw_line": "1100 deny icmp host 192.168.30.30 host 192.168.10.20"
+        }
+      }
+    },
+    {
+      "case_id": "hard_offpath_001",
+      "hard_type": "off_path_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R3",
+      "target_acl": "ACL_R3_F0_1_IN",
+      "target_acl_attachment": {
+        "router": "R3",
+        "interface": "s0/0",
+        "direction": "out"
+      },
+      "input_rule": {
+        "action": "deny",
+        "protocol": "tcp",
+        "src_ip": "192.168.20.10/32",
+        "dst_ip": "192.168.30.10/32",
+        "dst_port": 443,
+        "interface": "s0/0",
+        "direction": "out",
+        "sequence": 9999
+      },
+      "source_existing_rule": {
+        "router": "R3",
+        "interface": "f0/1",
+        "direction": "in",
+        "acl_name": "ACL_R3_F0_1_IN",
+        "sequence": 120,
+        "action": "permit",
+        "protocol": "tcp",
+        "src": "192.168.20.10/32",
+        "dst": "192.168.30.10/32",
+        "dst_port": 443,
+        "raw_line": "120 permit tcp host 192.168.20.10 host 192.168.30.10 eq 443"
+      }
+    },
+    {
+      "case_id": "hard_offpath_002",
+      "hard_type": "off_path_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R2",
+      "target_acl": "ACL_R3_F0_1_IN",
+      "target_acl_attachment": {
+        "router": "R2",
+        "interface": "s0/1",
+        "direction": "out"
+      },
+      "input_rule": {
+        "action": "deny",
+        "protocol": "tcp",
+        "src_ip": "192.168.20.10/32",
+        "dst_ip": "192.168.30.10/32",
+        "dst_port": 443,
+        "interface": "s0/1",
+        "direction": "out",
+        "sequence": 9999
+      },
+      "source_existing_rule": {
+        "router": "R3",
+        "interface": "f0/1",
+        "direction": "in",
+        "acl_name": "ACL_R3_F0_1_IN",
+        "sequence": 120,
+        "action": "permit",
+        "protocol": "tcp",
+        "src": "192.168.20.10/32",
+        "dst": "192.168.30.10/32",
+        "dst_port": 443,
+        "raw_line": "120 permit tcp host 192.168.20.10 host 192.168.30.10 eq 443"
+      }
+    },
+    {
+      "case_id": "hard_offpath_003",
+      "hard_type": "off_path_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R3",
+      "target_acl": "ACL_R3_F0_1_IN",
+      "target_acl_attachment": {
+        "router": "R3",
+        "interface": "s0/0",
+        "direction": "out"
+      },
+      "input_rule": {
+        "action": "permit",
+        "protocol": "ip",
+        "src_ip": "192.168.20.10/32",
+        "dst_ip": "192.168.30.10/32",
+        "dst_port": null,
+        "interface": "s0/0",
+        "direction": "out",
+        "sequence": 9999
+      },
+      "source_existing_rule": {
+        "router": "R3",
+        "interface": "f0/1",
+        "direction": "in",
+        "acl_name": "ACL_R3_F0_1_IN",
+        "sequence": 420,
+        "action": "deny",
+        "protocol": "ip",
+        "src": "192.168.20.10/32",
+        "dst": "192.168.30.10/32",
+        "dst_port": null,
+        "raw_line": "420 deny ip host 192.168.20.10 host 192.168.30.10"
+      }
+    },
+    {
+      "case_id": "hard_offpath_004",
+      "hard_type": "off_path_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R2",
+      "target_acl": "ACL_R3_F0_1_IN",
+      "target_acl_attachment": {
+        "router": "R2",
+        "interface": "f0/0",
+        "direction": "in"
+      },
+      "input_rule": {
+        "action": "deny",
+        "protocol": "tcp",
+        "src_ip": "192.168.20.20/32",
+        "dst_ip": "192.168.10.0/24",
+        "dst_port": 22,
+        "interface": "f0/0",
+        "direction": "in",
+        "sequence": 9999
+      },
+      "source_existing_rule": {
+        "router": "R3",
+        "interface": "f0/1",
+        "direction": "in",
+        "acl_name": "ACL_R3_F0_1_IN",
+        "sequence": 630,
+        "action": "permit",
+        "protocol": "tcp",
+        "src": "192.168.20.20/32",
+        "dst": "192.168.10.0/24",
+        "dst_port": 22,
+        "raw_line": "630 permit tcp host 192.168.20.20 192.168.10.0 0.0.0.255 eq 22"
+      }
+    },
+    {
+      "case_id": "hard_offpath_005",
+      "hard_type": "off_path_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R3",
+      "target_acl": "ACL_R3_F0_1_IN",
+      "target_acl_attachment": {
+        "router": "R3",
+        "interface": "s0/0",
+        "direction": "out"
+      },
+      "input_rule": {
+        "action": "deny",
+        "protocol": "tcp",
+        "src_ip": "192.168.20.20/32",
+        "dst_ip": "192.168.10.0/24",
+        "dst_port": 22,
+        "interface": "s0/0",
+        "direction": "out",
+        "sequence": 9999
+      },
+      "source_existing_rule": {
+        "router": "R3",
+        "interface": "f0/1",
+        "direction": "in",
+        "acl_name": "ACL_R3_F0_1_IN",
+        "sequence": 630,
+        "action": "permit",
+        "protocol": "tcp",
+        "src": "192.168.20.20/32",
+        "dst": "192.168.10.0/24",
+        "dst_port": 22,
+        "raw_line": "630 permit tcp host 192.168.20.20 192.168.10.0 0.0.0.255 eq 22"
+      }
+    },
+    {
+      "case_id": "hard_offpath_006",
+      "hard_type": "off_path_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R2",
+      "target_acl": "ACL_R3_F0_1_IN",
+      "target_acl_attachment": {
+        "router": "R2",
+        "interface": "f0/0",
+        "direction": "in"
+      },
+      "input_rule": {
+        "action": "deny",
+        "protocol": "ip",
+        "src_ip": "192.168.20.10/32",
+        "dst_ip": "0.0.0.0/0",
+        "dst_port": null,
+        "interface": "f0/0",
+        "direction": "in",
+        "sequence": 9999
+      },
+      "source_existing_rule": {
+        "router": "R3",
+        "interface": "f0/1",
+        "direction": "in",
+        "acl_name": "ACL_R3_F0_1_IN",
+        "sequence": 1030,
+        "action": "permit",
+        "protocol": "ip",
+        "src": "192.168.20.10/32",
+        "dst": "0.0.0.0/0",
+        "dst_port": null,
+        "raw_line": "1030 permit ip host 192.168.20.10 any"
+      }
+    },
+    {
+      "case_id": "hard_offpath_007",
+      "hard_type": "off_path_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R3",
+      "target_acl": "ACL_R3_F0_1_IN",
+      "target_acl_attachment": {
+        "router": "R3",
+        "interface": "f0/0",
+        "direction": "out"
+      },
+      "input_rule": {
+        "action": "deny",
+        "protocol": "ip",
+        "src_ip": "192.168.20.10/32",
+        "dst_ip": "0.0.0.0/0",
+        "dst_port": null,
+        "interface": "f0/0",
+        "direction": "out",
+        "sequence": 9999
+      },
+      "source_existing_rule": {
+        "router": "R3",
+        "interface": "f0/1",
+        "direction": "in",
+        "acl_name": "ACL_R3_F0_1_IN",
+        "sequence": 1030,
+        "action": "permit",
+        "protocol": "ip",
+        "src": "192.168.20.10/32",
+        "dst": "0.0.0.0/0",
+        "dst_port": null,
+        "raw_line": "1030 permit ip host 192.168.20.10 any"
+      }
+    },
+    {
+      "case_id": "hard_offpath_008",
+      "hard_type": "off_path_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R2",
+      "target_acl": "ACL_R3_F0_1_IN",
+      "target_acl_attachment": {
+        "router": "R2",
+        "interface": "s0/1",
+        "direction": "out"
+      },
+      "input_rule": {
+        "action": "deny",
+        "protocol": "ip",
+        "src_ip": "192.168.20.10/32",
+        "dst_ip": "0.0.0.0/0",
+        "dst_port": null,
+        "interface": "s0/1",
+        "direction": "out",
+        "sequence": 9999
+      },
+      "source_existing_rule": {
+        "router": "R3",
+        "interface": "f0/1",
+        "direction": "in",
+        "acl_name": "ACL_R3_F0_1_IN",
+        "sequence": 1030,
+        "action": "permit",
+        "protocol": "ip",
+        "src": "192.168.20.10/32",
+        "dst": "0.0.0.0/0",
+        "dst_port": null,
+        "raw_line": "1030 permit ip host 192.168.20.10 any"
+      }
+    },
+    {
+      "case_id": "hard_offpath_009",
+      "hard_type": "off_path_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R2",
+      "target_acl": "ACL_R3_F0_1_IN",
+      "target_acl_attachment": {
+        "router": "R2",
+        "interface": "f0/0",
+        "direction": "in"
+      },
+      "input_rule": {
+        "action": "permit",
+        "protocol": "udp",
+        "src_ip": "192.168.20.10/32",
+        "dst_ip": "192.168.10.40/32",
+        "dst_port": 53,
+        "interface": "f0/0",
+        "direction": "in",
+        "sequence": 9999
+      },
+      "source_existing_rule": {
+        "router": "R3",
+        "interface": "f0/1",
+        "direction": "in",
+        "acl_name": "ACL_R3_F0_1_IN",
+        "sequence": 1210,
+        "action": "deny",
+        "protocol": "udp",
+        "src": "192.168.20.10/32",
+        "dst": "192.168.10.40/32",
+        "dst_port": 53,
+        "raw_line": "1210 deny udp host 192.168.20.10 host 192.168.10.40 eq 53"
+      }
+    },
+    {
+      "case_id": "hard_offpath_010",
+      "hard_type": "off_path_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R3",
+      "target_acl": "ACL_R3_F0_1_IN",
+      "target_acl_attachment": {
+        "router": "R3",
+        "interface": "s0/0",
+        "direction": "out"
+      },
+      "input_rule": {
+        "action": "deny",
+        "protocol": "tcp",
+        "src_ip": "192.168.20.0/24",
+        "dst_ip": "192.168.10.20/32",
+        "dst_port": 443,
+        "interface": "s0/0",
+        "direction": "out",
+        "sequence": 9999
+      },
+      "source_existing_rule": {
+        "router": "R3",
+        "interface": "f0/1",
+        "direction": "in",
+        "acl_name": "ACL_R3_F0_1_IN",
+        "sequence": 1240,
+        "action": "permit",
+        "protocol": "tcp",
+        "src": "192.168.20.0/24",
+        "dst": "192.168.10.20/32",
+        "dst_port": 443,
+        "raw_line": "1240 permit tcp 192.168.20.0 0.0.0.255 host 192.168.10.20 eq 443"
+      }
+    },
+    {
+      "case_id": "hard_offpath_011",
+      "hard_type": "off_path_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R2",
+      "target_acl": "ACL_R3_F0_1_IN",
+      "target_acl_attachment": {
+        "router": "R2",
+        "interface": "f0/0",
+        "direction": "in"
+      },
+      "input_rule": {
+        "action": "permit",
+        "protocol": "udp",
+        "src_ip": "192.168.20.10/32",
+        "dst_ip": "0.0.0.0/0",
+        "dst_port": 53,
+        "interface": "f0/0",
+        "direction": "in",
+        "sequence": 9999
+      },
+      "source_existing_rule": {
+        "router": "R3",
+        "interface": "f0/1",
+        "direction": "in",
+        "acl_name": "ACL_R3_F0_1_IN",
+        "sequence": 1450,
+        "action": "deny",
+        "protocol": "udp",
+        "src": "192.168.20.10/32",
+        "dst": "0.0.0.0/0",
+        "dst_port": 53,
+        "raw_line": "1450 deny udp host 192.168.20.10 any eq 53"
+      }
+    },
+    {
+      "case_id": "hard_offpath_012",
+      "hard_type": "off_path_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R3",
+      "target_acl": "ACL_R3_F0_1_IN",
+      "target_acl_attachment": {
+        "router": "R3",
+        "interface": "f0/0",
+        "direction": "out"
+      },
+      "input_rule": {
+        "action": "permit",
+        "protocol": "udp",
+        "src_ip": "192.168.20.10/32",
+        "dst_ip": "0.0.0.0/0",
+        "dst_port": 53,
+        "interface": "f0/0",
+        "direction": "out",
+        "sequence": 9999
+      },
+      "source_existing_rule": {
+        "router": "R3",
+        "interface": "f0/1",
+        "direction": "in",
+        "acl_name": "ACL_R3_F0_1_IN",
+        "sequence": 1450,
+        "action": "deny",
+        "protocol": "udp",
+        "src": "192.168.20.10/32",
+        "dst": "0.0.0.0/0",
+        "dst_port": 53,
+        "raw_line": "1450 deny udp host 192.168.20.10 any eq 53"
+      }
+    },
+    {
+      "case_id": "hard_offpath_013",
+      "hard_type": "off_path_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R2",
+      "target_acl": "ACL_R3_F0_1_IN",
+      "target_acl_attachment": {
+        "router": "R2",
+        "interface": "f0/0",
+        "direction": "in"
+      },
+      "input_rule": {
+        "action": "permit",
+        "protocol": "ip",
+        "src_ip": "192.168.20.0/24",
+        "dst_ip": "192.168.10.0/24",
+        "dst_port": null,
+        "interface": "f0/0",
+        "direction": "in",
+        "sequence": 9999
+      },
+      "source_existing_rule": {
+        "router": "R3",
+        "interface": "f0/1",
+        "direction": "in",
+        "acl_name": "ACL_R3_F0_1_IN",
+        "sequence": 1460,
+        "action": "deny",
+        "protocol": "ip",
+        "src": "192.168.20.0/24",
+        "dst": "192.168.10.0/24",
+        "dst_port": null,
+        "raw_line": "1460 deny ip 192.168.20.0 0.0.0.255 192.168.10.0 0.0.0.255"
+      }
+    },
+    {
+      "case_id": "hard_offpath_014",
+      "hard_type": "off_path_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R2",
+      "target_acl": "ACL_R3_F0_1_IN",
+      "target_acl_attachment": {
+        "router": "R2",
+        "interface": "s0/1",
+        "direction": "out"
+      },
+      "input_rule": {
+        "action": "deny",
+        "protocol": "tcp",
+        "src_ip": "192.168.20.20/32",
+        "dst_ip": "192.168.30.10/32",
+        "dst_port": 22,
+        "interface": "s0/1",
+        "direction": "out",
+        "sequence": 9999
+      },
+      "source_existing_rule": {
+        "router": "R3",
+        "interface": "f0/1",
+        "direction": "in",
+        "acl_name": "ACL_R3_F0_1_IN",
+        "sequence": 1800,
+        "action": "permit",
+        "protocol": "tcp",
+        "src": "192.168.20.20/32",
+        "dst": "192.168.30.10/32",
+        "dst_port": 22,
+        "raw_line": "1800 permit tcp host 192.168.20.20 host 192.168.30.10 eq 22"
+      }
+    },
+    {
+      "case_id": "hard_offpath_015",
+      "hard_type": "off_path_conflict",
+      "expected_label": "valid",
+      "naive_prediction_expected": "conflict",
+      "pathaware_prediction_expected": "valid",
+      "device": "R2",
+      "target_acl": "ACL_R2_S0_0_OUT",
+      "target_acl_attachment": {
+        "router": "R2",
+        "interface": "f0/0",
+        "direction": "in"
+      },
+      "input_rule": {
+        "action": "permit",
+        "protocol": "tcp",
+        "src_ip": "203.0.113.1/32",
+        "dst_ip": "192.168.10.10/32",
+        "dst_port": 23,
+        "interface": "f0/0",
+        "direction": "in",
+        "sequence": 9999
+      },
+      "source_existing_rule": {
+        "router": "R2",
+        "interface": "s0/0",
+        "direction": "out",
+        "acl_name": "ACL_R2_S0_0_OUT",
+        "sequence": 80,
+        "action": "deny",
+        "protocol": "tcp",
+        "src": "203.0.113.1/32",
+        "dst": "192.168.10.10/32",
+        "dst_port": 23,
+        "raw_line": "80 deny tcp host 203.0.113.1 host 192.168.10.10 eq 23"
+      }
+    }
+  ],
+  "summary": {
+    "generated_total": 30,
+    "shadowed_conflict_cases": 15,
+    "off_path_conflict_cases": 15,
+    "seed": 42
+  }
+}

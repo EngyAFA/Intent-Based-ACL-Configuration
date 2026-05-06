@@ -1,0 +1,149 @@
+{
+    "version": "12.4",
+    "hostname": "R1",
+    "router_ospf": {
+        "process_id": 1,
+        "networks": [
+            {
+                "network": "172.16.10.0",
+                "wildcard_mask": "0.0.0.255",
+                "area": "0"
+            },
+            {
+                "network": "172.16.20.0",
+                "wildcard_mask": "0.0.0.255",
+                "area": "0"
+            }
+        ]
+    },
+    "static_routes": [
+        {
+            "destination": "0.0.0.0",
+            "mask": "0.0.0.0",
+            "next_hop": "192.168.122.1",
+            "name": "default_NAT"
+        },
+        {
+            "destination": "172.16.0.0",
+            "mask": "255.255.0.0",
+            "next_hop": "172.16.20.2",
+            "name": "LAN"
+        }
+    ],
+    "lines": {
+        "con_0": {},
+        "aux_0": {},
+        "vty_0": {}
+    },
+    "interfaces": [
+        {
+            "name": "f0/0",
+            "ip_address": null,
+            "subnet_mask": null,
+            "access_group": null,
+            "dhcp": false,
+            "shutdown": false,
+            "nat": "inside",
+            "virtual_reassembly": true
+        },
+        {
+            "name": "s0/0",
+            "ip_address": "172.16.20.1",
+            "subnet_mask": "255.255.255.0",
+            "access_group": null,
+            "dhcp": false,
+            "shutdown": false,
+            "nat": null,
+            "virtual_reassembly": false,
+            "clock_rate": 2000000
+        },
+        {
+            "name": "f0/1",
+            "ip_address": "172.16.10.1",
+            "subnet_mask": "255.255.255.0",
+            "access_group": "ACL_F0_1_IN",
+            "dhcp": false,
+            "shutdown": false,
+            "nat": "inside",
+            "virtual_reassembly": true,
+            "direction": "out"
+        },
+        {
+            "name": "s0/1",
+            "ip_address": null,
+            "subnet_mask": null,
+            "access_group": null,
+            "dhcp": false,
+            "shutdown": true,
+            "nat": null,
+            "virtual_reassembly": false,
+            "clock_rate": 2000000
+        },
+        {
+            "name": "f1/0",
+            "ip_address": "172.16.61.138",
+            "subnet_mask": "255.255.255.0",
+            "access_group": null,
+            "dhcp": false,
+            "shutdown": false,
+            "nat": null,
+            "virtual_reassembly": false
+        }
+    ],
+    "access_lists": [
+        {
+            "name": "ACL_F0_1_IN",
+            "rules": [
+                {
+                    "action": "deny",
+                    "protocol": "tcp",
+                    "source": {
+                        "type": "any",
+                        "address": "0.0.0.0/0"
+                    },
+                    "destination": {
+                        "type": "ip",
+                        "address": "172.16.10.0/24"
+                    },
+                    "dst_port": 80
+                }
+            ]
+        },
+        {
+            "name": "ACL_f0/1_IN",
+            "rules": [
+                {
+                    "action": "deny",
+                    "protocol": "tcp",
+                    "source": {
+                        "type": "any",
+                        "address": "0.0.0.0/0"
+                    },
+                    "destination": {
+                        "type": "ip",
+                        "address": "172.16.10.0/24"
+                    },
+                    "dst_port": 80
+                }
+            ]
+        },
+        {
+            "name": "ACL_F0/1_IN",
+            "rules": [
+                {
+                    "action": "deny",
+                    "protocol": "tcp",
+                    "source": {
+                        "type": "any",
+                        "address": "0.0.0.0/0"
+                    },
+                    "destination": {
+                        "type": "ip",
+                        "address": "172.16.10.0/24"
+                    },
+                    "dst_port": 80
+                }
+            ]
+        }
+    ]
+}

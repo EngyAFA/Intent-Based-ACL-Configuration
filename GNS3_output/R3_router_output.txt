@@ -1,0 +1,73 @@
+
+$ terminal length 0
+
+
+$ show ip interface brief
+
+
+$ show ip route
+
+================================================================================
+
+$ terminal length 0
+
+
+$ enable
+
+
+$ configure terminal
+
+
+$ enable
+
+
+$ configure terminal
+
+
+$ ip access-list extended ACL_S0_0_IN
+
+
+$ deny tcp any 172.16.50.0 0.0.0.255 eq 22
+
+
+$ interface s0/0
+
+
+$ ip access-group ACL_S0_0_IN in
+
+
+$ interface serial0/0
+
+
+$ end
+
+
+$ write memory
+
+
+$ end
+
+
+$ write memory
+
+================================================================================
+
+$ terminal length 0
+
+
+$ show access-lists
+
+
+$ show running-config | include access-group
+
+================================================================================
+
+$ terminal length 0
+
+
+$ show ip interface brief
+
+
+$ show ip route
+
+================================================================================

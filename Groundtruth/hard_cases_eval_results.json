@@ -1,0 +1,473 @@
+{
+  "num_cases": 30,
+  "detector_metrics": {
+    "model": "path-aware detector",
+    "accuracy": 1.0,
+    "macro_precision": 0.3333333333333333,
+    "macro_recall": 0.3333333333333333,
+    "macro_f1": 0.3333333333333333,
+    "per_class": {
+      "duplicate": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "conflict": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "valid": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 30
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "duplicate",
+        "conflict",
+        "valid"
+      ],
+      "matrix": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          30
+        ]
+      ]
+    },
+    "classification_report": {
+      "duplicate": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "conflict": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "valid": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 30
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 0.3333333333333333,
+        "recall": 0.3333333333333333,
+        "f1": 0.3333333333333333,
+        "support": 30
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 30
+      }
+    }
+  },
+  "naive_metrics": {
+    "model": "naive detector",
+    "accuracy": 0.0,
+    "macro_precision": 0.0,
+    "macro_recall": 0.0,
+    "macro_f1": 0.0,
+    "per_class": {
+      "duplicate": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "conflict": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "valid": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 30
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "duplicate",
+        "conflict",
+        "valid"
+      ],
+      "matrix": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          30,
+          0
+        ]
+      ]
+    },
+    "classification_report": {
+      "duplicate": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "conflict": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "valid": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 30
+      },
+      "accuracy": 0.0,
+      "macro avg": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 30
+      },
+      "weighted avg": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 30
+      }
+    }
+  },
+  "details": [
+    {
+      "case_id": "hard_shadow_001",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R1",
+      "interface": "f0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "hard_shadow_002",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R1",
+      "interface": "s0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "hard_shadow_003",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R1",
+      "interface": "s0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "hard_shadow_004",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R1",
+      "interface": "s0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "hard_shadow_005",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R1",
+      "interface": "s0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "hard_shadow_006",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R3",
+      "interface": "f0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "hard_shadow_007",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R3",
+      "interface": "f0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "hard_shadow_008",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R3",
+      "interface": "f0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "hard_shadow_009",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R3",
+      "interface": "f0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "hard_shadow_010",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R3",
+      "interface": "f0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "hard_shadow_011",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R3",
+      "interface": "f0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "hard_shadow_012",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R3",
+      "interface": "f0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "hard_shadow_013",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R3",
+      "interface": "s0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "hard_shadow_014",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R3",
+      "interface": "s0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "hard_shadow_015",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R3",
+      "interface": "s0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "hard_offpath_001",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R3",
+      "interface": "s0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "hard_offpath_002",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R2",
+      "interface": "s0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "hard_offpath_003",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R3",
+      "interface": "s0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "hard_offpath_004",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R2",
+      "interface": "f0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "hard_offpath_005",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R3",
+      "interface": "s0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "hard_offpath_006",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R2",
+      "interface": "f0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "hard_offpath_007",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R3",
+      "interface": "f0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "hard_offpath_008",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R2",
+      "interface": "s0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "hard_offpath_009",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R2",
+      "interface": "f0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "hard_offpath_010",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R3",
+      "interface": "s0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "hard_offpath_011",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R2",
+      "interface": "f0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "hard_offpath_012",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R3",
+      "interface": "f0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "hard_offpath_013",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R2",
+      "interface": "f0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "hard_offpath_014",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R2",
+      "interface": "s0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "hard_offpath_015",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "conflict",
+      "synthetic_target_class": null,
+      "device": "R2",
+      "interface": "f0/0",
+      "direction": "in"
+    }
+  ]
+}

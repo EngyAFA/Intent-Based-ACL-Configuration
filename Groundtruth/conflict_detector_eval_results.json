@@ -1,0 +1,4673 @@
+{
+  "num_cases": 450,
+  "detector_metrics": {
+    "model": "path-aware detector",
+    "accuracy": 1.0,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1": 1.0,
+    "per_class": {
+      "duplicate": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 150
+      },
+      "conflict": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 150
+      },
+      "valid": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 150
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "duplicate",
+        "conflict",
+        "valid"
+      ],
+      "matrix": [
+        [
+          150,
+          0,
+          0
+        ],
+        [
+          0,
+          150,
+          0
+        ],
+        [
+          0,
+          0,
+          150
+        ]
+      ]
+    },
+    "classification_report": {
+      "duplicate": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 150
+      },
+      "conflict": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 150
+      },
+      "valid": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 150
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 450
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 450
+      }
+    }
+  },
+  "naive_metrics": {
+    "model": "naive detector",
+    "accuracy": 1.0,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1": 1.0,
+    "per_class": {
+      "duplicate": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 150
+      },
+      "conflict": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 150
+      },
+      "valid": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 150
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "duplicate",
+        "conflict",
+        "valid"
+      ],
+      "matrix": [
+        [
+          150,
+          0,
+          0
+        ],
+        [
+          0,
+          150,
+          0
+        ],
+        [
+          0,
+          0,
+          150
+        ]
+      ]
+    },
+    "classification_report": {
+      "duplicate": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 150
+      },
+      "conflict": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 150
+      },
+      "valid": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 150
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 450
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 450
+      }
+    }
+  },
+  "details": [
+    {
+      "case_id": "mr_mixed_0060_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0138_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0015_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0056_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0017_p3_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0024_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0114_p3_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0075_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0024_p2_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0120_p3_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0145_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0149_p3_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0032_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0077_p3_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0174_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0019_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0132_p2_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0059_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0076_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0091_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0161_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0117_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0105_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0139_p3_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0002_p3_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0168_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0090_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0083_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0088_p3_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0076_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0046_p3_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0059_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0080_p3_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0013_p3_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0100_p2_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0007_p3_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0157_p2_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0023_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0082_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0054_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0132_p3_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0078_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0055_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0065_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0143_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0049_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0050_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0118_p2_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0064_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0063_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0030_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0034_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0159_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0110_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0017_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0072_p3_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0108_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0047_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0044_p2_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0129_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0066_p2_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0133_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0012_p3_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0058_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0002_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0032_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0111_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0069_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0135_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0164_p3_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0033_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0171_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0106_p2_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0123_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0146_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0147_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0068_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0121_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0077_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0046_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0004_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0002_p2_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0161_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0089_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0143_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0154_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0124_p3_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0030_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0155_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0010_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0025_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0067_p2_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0095_p2_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0074_p3_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0067_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0033_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0036_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0151_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0142_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0055_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0084_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0131_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0086_p3_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0126_p3_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0029_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0117_p3_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0063_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0141_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0054_p3_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0114_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0013_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0141_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0023_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0038_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0125_p2_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0178_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0156_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0057_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0011_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0088_p2_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0003_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0096_p3_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0176_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0085_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0095_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0144_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0106_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0072_p2_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0047_p2_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0118_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0117_p2_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0001_p2_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0007_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0178_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0095_p3_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0025_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0092_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0114_p2_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0126_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0171_p3_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0051_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0163_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0022_p2_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0066_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0047_p3_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0052_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r2",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0146_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0101_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0097_p1_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0170_dup_1",
+      "gold_label": "duplicate",
+      "pred_detector": "duplicate",
+      "pred_naive": "duplicate",
+      "synthetic_target_class": "duplicate",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0060_conf_28",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0138_p1_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0015_p1_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0017_p3_conf_19",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0024_conf_19",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0114_p3_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0075_p1_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0024_p2_conf_19",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0120_p3_conf_19",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0145_p1_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0149_p3_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0032_conf_14",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0077_p3_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0174_p1_conf_28",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0019_p1_conf_30",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0132_p2_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0059_p1_conf_28",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0076_conf_28",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0091_p1_conf_19",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0117_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0105_p1_conf_28",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0139_p3_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0002_p3_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0090_p1_conf_30",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0083_conf_30",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0088_p3_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0076_p1_conf_28",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0046_p3_conf_19",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0059_conf_28",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0080_p3_conf_19",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0013_p3_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0100_p2_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0007_p3_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0157_p2_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0023_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0082_p1_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0054_p1_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0132_p3_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0078_p1_conf_30",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0055_conf_14",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0065_p1_conf_28",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0143_p1_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0049_p1_conf_19",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0050_p1_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0118_p2_conf_19",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0064_p1_conf_30",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0063_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0030_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0034_conf_19",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0159_p1_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0110_p1_conf_28",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0017_conf_19",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0072_p3_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0108_p1_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0047_p1_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0044_p2_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0129_conf_30",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0066_p2_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0133_conf_30",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0012_p3_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0058_conf_6",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0002_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0032_p1_conf_14",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0069_conf_28",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0135_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0164_p3_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0033_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0171_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0106_p2_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0123_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0146_p1_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0147_conf_19",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0068_p1_conf_30",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0121_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0077_p1_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0046_p1_conf_19",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0004_p1_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0002_p2_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0089_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0143_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0154_p1_conf_14",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0124_p3_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0030_p1_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0155_conf_28",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0010_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0025_p1_conf_19",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0067_p2_conf_19",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0095_p2_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0074_p3_conf_19",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0067_conf_19",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0033_p1_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0036_conf_30",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0151_p1_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0142_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0055_p1_conf_14",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0084_conf_30",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0131_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0086_p3_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0126_p3_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0029_p1_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0117_p3_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0063_p1_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0054_p3_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0114_p1_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0013_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0023_p1_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0038_conf_30",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0125_p2_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0178_p1_conf_14",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0156_conf_19",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0057_conf_28",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0011_p1_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0088_p2_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0003_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0096_p3_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0176_p1_conf_30",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0085_p1_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0095_p1_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0144_p1_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0106_p1_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0072_p2_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0047_p2_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0118_conf_19",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0117_p2_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0001_p2_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0007_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0178_conf_14",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0095_p3_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0025_conf_19",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0114_p2_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0126_p1_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0171_p3_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0051_p1_conf_30",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0022_p2_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0066_p1_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0047_p3_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0052_conf_6",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0146_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0097_p1_conf_30",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0170_conf_30",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0075_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0052_p1_conf_6",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r2",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0157_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0100_p1_conf_46",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0123_p1_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0169_p1_conf_30",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0115_p1_conf_28",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0006_p1_conf_28",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0007_p2_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0047_conf_34",
+      "gold_label": "conflict",
+      "pred_detector": "conflict",
+      "pred_naive": "conflict",
+      "synthetic_target_class": "conflict",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0060_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0138_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0015_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0056_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0017_p3_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0024_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0114_p3_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0075_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0024_p2_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0120_p3_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0145_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0149_p3_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0032_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0077_p3_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0174_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0019_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0132_p2_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0059_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0076_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0091_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0161_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0117_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0105_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0139_p3_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0002_p3_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0168_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0090_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0083_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0088_p3_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0076_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0046_p3_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0059_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0080_p3_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0013_p3_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0100_p2_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0007_p3_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0157_p2_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0023_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0082_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0054_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0132_p3_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0078_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0055_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0065_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0143_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0049_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0050_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0118_p2_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0064_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0063_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0030_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0034_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0159_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0110_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0017_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0072_p3_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0108_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0047_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0044_p2_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0129_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0066_p2_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0133_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0012_p3_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0058_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0002_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0032_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0111_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0069_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0135_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0164_p3_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0033_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0171_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0106_p2_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0123_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0146_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0147_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0068_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0121_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0077_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0046_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0004_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0002_p2_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0161_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0089_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0143_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0154_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0124_p3_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0030_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0155_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0010_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0025_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0067_p2_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0095_p2_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0074_p3_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0067_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0033_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0036_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0151_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0142_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0055_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0084_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0131_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0086_p3_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0126_p3_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0029_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0117_p3_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0063_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0141_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0054_p3_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0114_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0013_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0141_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0023_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0038_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0125_p2_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0178_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0156_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0057_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0011_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0088_p2_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0003_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0096_p3_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0176_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0085_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0095_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0144_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0106_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0072_p2_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0047_p2_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0118_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0117_p2_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0001_p2_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0007_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0178_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "serial0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0095_p3_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0025_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0092_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0114_p2_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0126_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0171_p3_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0051_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0163_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0022_p2_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0066_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0047_p3_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0052_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r2",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0146_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/1",
+      "direction": "in"
+    },
+    {
+      "case_id": "mr_mixed_0101_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r3",
+      "interface": "fastethernet0/0",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0097_p1_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    },
+    {
+      "case_id": "mr_mixed_0170_val_1",
+      "gold_label": "valid",
+      "pred_detector": "valid",
+      "pred_naive": "valid",
+      "synthetic_target_class": "valid",
+      "device": "r1",
+      "interface": "serial0/1",
+      "direction": "out"
+    }
+  ]
+}
