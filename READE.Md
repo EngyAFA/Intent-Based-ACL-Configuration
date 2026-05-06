@@ -15,8 +15,12 @@ Use:
 `ACL_generate_System.ipynb`
 
 This notebook runs the full framework:
+
 - LLM-based ACL generation
+  
 - Batfish verification
+
+  
 - GNS3 / Network Digital Twin verification
 
 ---
@@ -26,6 +30,7 @@ This notebook runs the full framework:
 The project supports both:
 
 - GPT
+  
 - DeepSeek
 
 You should activate only one model setup at a time.
@@ -43,14 +48,14 @@ Update the API keys in:
 Activate:
 
 ```python
-os.environ["OPENAI_API_KEY"] = "sk-proj-do8qJoIY-xU4O3tL-1A45sakg85Yi456ghjFIgrQKPGzcr-EtCeF_RJJ6-s9KBWrSfg4bkOpk-dp5T45kjjebXf-__fghlrfD_XAGj6_nu1fkfjg63475e3mIp5AM-GHy78UAffA"
+os.environ["OPENAI_API_KEY"] = "YOUR_OPENAI_API_KEY_HERE"
 ```
 
 ### For DeepSeek
 
 Activate:
 ```python
-os.environ["OPENAI_API_KEY"] = "sk-1krtv655ece4edfg456fg11abhjk85"
+os.environ["OPENAI_API_KEY"] = "YOUR_deepSeek_API_KEY_HERE"
 os.environ["OPENAI_BASE_URL"] = "https://api.deepseek.com/v1"
 ```
 
@@ -65,15 +70,21 @@ Also place the network topology file inside the same folder.
 Typical files in configs/ include:
 
 R1.cfg
+
 R2.cfg
+
 R3.cfg
+
 TopologyFile.json
 
 The system reads these files to:
 
 understand the network structure
+
 choose the relevant router
+
 generate ACL placement
+
 build candidate updated router configs such as R1_2.cfg, R2_2.cfg, or R3_2.cfg
 
 ## 3. GNS3 Device Information
@@ -83,8 +94,11 @@ Inside the notebook, update the GNS3 console connection information (console var
 This includes:
 
 console IP
+
 console port
+
 device name
+
 device type
 
 These values must match your actual GNS3 lab and server setup.
@@ -111,10 +125,15 @@ result = run_llm_batfish_gns3_cycle(
 ```
 
 This step translates the user intent into ACL configuration using (run_ACL_workflow) and produces:
+
 generated ACL rules
+
 selected router
+
 interface and direction
+
 ACL name
+
 updated candidate configuration
 
 The full pipeline then validates the candidate using Batfish (Batfish_validate_until_ok) and GNS3 (validate_acl_in_gns3).
@@ -141,7 +160,9 @@ This is important to keep the final router configuration consistent with the ori
 Use these files in the import section for the GPT version:
 
 Agents.py
+
 multiAgent.py
+
 prompts.py
 
 ## 7. Files Used for DeepSeek
@@ -149,8 +170,11 @@ prompts.py
 Use these files in the import section for the DeepSeek version:
 
 AgentsDS.py
+
 multiAgentDS.py
+
 promptDS.py
+
 
 
 ## 8. Verification Stages
@@ -159,30 +183,47 @@ Batfish Verification
 Batfish checks:
 
 ACL placement
+
 expected traffic behavior
+
 violation space
+
 unreachable or shadowed ACL lines
+
 GNS3 Verification
 
 GNS3 checks:
 
 ACL deployment on the router
+
 router-side ACL attachment
+
 traffic behavior from test hosts
+
 ACL hit counters when applicable
 
 ## 9. Notes
 Use a clean original router config before each full test run.
+
 Candidate files such as R1_2.cfg should be treated as temporary working files.
+
 Batfish and GNS3 must both succeed before promoting the candidate file to the original router file.
+
 Only one model setup should be active at a time: GPT or DeepSeek.
 
 ## 10. Example Usage
 Set API keys in Helpers/env.py
+
 Put topology and router configs in configs/
+
 Update GNS3 console information in the notebook
+
 Open ACL_generate_System.ipynb
+
 Enter a natural-language intent
+
 Run the notebook cells
+
 Review Batfish and GNS3 validation results
+
 If validation succeeds, promote the candidate config to the original router config
