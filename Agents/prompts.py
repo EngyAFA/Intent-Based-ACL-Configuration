@@ -80,7 +80,7 @@ def build_acl_name_query_prompt(
 
     return prompt
     
-def Network_LLM(context_variables):
+def Network_LLM(context_variables: dict) -> str:
     topology_file = context_variables.get("topology_file", None)
     question      = context_variables.get("question", None)
     new_intent      = context_variables.get("new_intent", None)
@@ -123,7 +123,7 @@ def Network_LLM(context_variables):
 # ###              for Entity Extractor Agent 
 # ####################################################################################################
 
-def entity_extraction_Evaluation(context_variables):
+def entity_extraction_Evaluation(context_variables: dict) -> str:
     new_intent = context_variables.get("new_intent")
     resolved_names = context_variables.get("resolved_names")
     resolved_names_json = json.dumps(resolved_names, indent=2)
@@ -239,7 +239,7 @@ def entity_extraction_Evaluation(context_variables):
 # # ############ instructions for generating the configuration commands based on user intent ###########    
 #  #####            for ACL Generator Agent 
 # # ####################################################################################################
-def get_Generate_ACL_instructions(context_variables):
+def get_Generate_ACL_instructions(context_variables: dict) -> str:
     """
     Builds the prompt for:
       - mode="generate"

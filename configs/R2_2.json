@@ -1,16 +1,21 @@
 {
     "version": "12.4",
-    "hostname": "R3_2",
+    "hostname": "R2_2",
     "router_ospf": {
         "process_id": 1,
         "networks": [
             {
-                "network": "172.16.40.0",
+                "network": "172.16.20.0",
                 "wildcard_mask": "0.0.0.255",
                 "area": "0"
             },
             {
-                "network": "172.16.50.0",
+                "network": "172.16.30.0",
+                "wildcard_mask": "0.0.0.255",
+                "area": "0"
+            },
+            {
+                "network": "172.16.40.0",
                 "wildcard_mask": "0.0.0.255",
                 "area": "0"
             }
@@ -24,43 +29,42 @@
     "interfaces": [
         {
             "name": "f0/0",
-            "ip_address": "172.16.61.140",
-            "subnet_mask": "255.255.255.0",
+            "ip_address": null,
+            "subnet_mask": null,
             "access_group": null,
-            "dhcp": false,
+            "dhcp": true,
             "shutdown": false,
             "nat": null,
             "virtual_reassembly": false
         },
         {
             "name": "s0/0",
-            "ip_address": "172.16.40.2",
-            "subnet_mask": "255.255.255.0",
-            "access_group": "ACL_S0_0_IN",
-            "dhcp": false,
-            "shutdown": false,
-            "nat": null,
-            "virtual_reassembly": false,
-            "clock_rate": 2000000,
-            "direction": "in"
-        },
-        {
-            "name": "f0/1",
-            "ip_address": "172.16.50.1",
+            "ip_address": "172.16.40.1",
             "subnet_mask": "255.255.255.0",
             "access_group": null,
             "dhcp": false,
             "shutdown": false,
             "nat": null,
-            "virtual_reassembly": false
+            "virtual_reassembly": false,
+            "clock_rate": 2000000
         },
         {
-            "name": "s0/1",
+            "name": "f0/1",
             "ip_address": null,
             "subnet_mask": null,
             "access_group": null,
             "dhcp": false,
             "shutdown": true,
+            "nat": null,
+            "virtual_reassembly": false
+        },
+        {
+            "name": "s0/1",
+            "ip_address": "172.16.20.2",
+            "subnet_mask": "255.255.255.0",
+            "access_group": null,
+            "dhcp": false,
+            "shutdown": false,
             "nat": null,
             "virtual_reassembly": false,
             "clock_rate": 2000000
@@ -78,31 +82,31 @@
         },
         {
             "name": "f1/0",
-            "ip_address": null,
-            "subnet_mask": null,
-            "access_group": null,
+            "ip_address": "172.16.30.1",
+            "subnet_mask": "255.255.255.0",
+            "access_group": "ACL_FASTETHERNET1_0_IN",
             "dhcp": false,
-            "shutdown": true,
+            "shutdown": false,
             "nat": null,
-            "virtual_reassembly": false
+            "virtual_reassembly": false,
+            "direction": "out"
         }
     ],
     "access_lists": [
         {
-            "name": "ACL_S0_0_IN",
+            "name": "ACL_FASTETHERNET1_0_IN",
             "rules": [
                 {
                     "action": "deny",
-                    "protocol": "tcp",
+                    "protocol": "icmp",
                     "source": {
                         "type": "any",
                         "address": "0.0.0.0/0"
                     },
                     "destination": {
                         "type": "ip",
-                        "address": "172.16.50.0/24"
-                    },
-                    "dst_port": 22
+                        "address": "172.16.30.0/24"
+                    }
                 }
             ]
         }

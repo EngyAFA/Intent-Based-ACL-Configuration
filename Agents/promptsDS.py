@@ -110,7 +110,7 @@ def deepseek_extract_entities(prompt: str) -> str:
     )
 
 # Prompt builder    
-def build_entity_extraction_prompt(context_variables):
+def build_entity_extraction_prompt(context_variables: dict) -> str:
     new_intent = context_variables.get("new_intent")
     resolved_names = context_variables.get("resolved_names")
     resolved_names_json = json.dumps(resolved_names, indent=2)
@@ -221,7 +221,7 @@ def build_entity_extraction_prompt(context_variables):
 #  #####            for ACL Generator Agent 
 # # ####################################################################################################
 
-def build_acl_generator_prompt(context_variables):
+def build_acl_generator_prompt(context_variables: dict) -> str:
     """
     Builds the prompt for:
       - mode="generate"

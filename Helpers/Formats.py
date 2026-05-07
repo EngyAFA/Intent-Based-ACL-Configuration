@@ -3,8 +3,8 @@ import sys
 import re
 import json
 import random
-import subprocess
 import time
+import subprocess
 
 import pandas as pd
 from tabulate import tabulate
@@ -20,12 +20,24 @@ pd.set_option('display.width', 100)        # Adjust the width of the output
 pd.set_option('display.max_colwidth', None)
 
 # Function to wrap text within a cell
-def wrap_text(text, width):
-    return '\n'.join([text[i:i+width] for i in range(0, len(text), width)])
+def wrap_text(text: str, width: int) -> str:
+    wrapped_lines = []
+
+    for i in range(0, len(text), width):
+        wrapped_lines.append(text[i:i + width])
+
+    return "\n".join(wrapped_lines)
 
 # Function to apply wrapping to each cell in the DataFrame
-def wrap_dataframe(df, width):
-    return df.applymap(lambda x: wrap_text(str(x), width))
+def wrap_dataframe(df: pd.DataFrame, width: int) -> pd.DataFrame:
+    wrapped_df = df.copy()
+
+    for column in wrapped_df.columns:
+        wrapped_df[column] = wrapped_df[column].apply(
+            lambda cell: wrap_text(str(cell), width)
+        )
+
+    return wrapped_df
 
 #### Helping Function ####
 
@@ -62,10 +74,66 @@ def strip_code_fences(text: str) -> str:
         return "\n".join(lines).strip()
     return text 
     
-def csv_to_list(s: str):
+def csv_to_list(s: str) -> list:
+    values = []
+
     if not s or s.lower() == "none":
-        return []
-    return [x.strip() for x in s.split(",") if x.strip()]
+        return values
+
+    for item in s.split(","):
+        cleaned_item = item.strip()
+
+        if cleaned_item:
+            values.append(cleaned_item)
+
+    return values
+
+########### Helping function: normalization functions ###########
+#################################################################
+
+# def normalize_interface_name(name):
+#     if name is None:
+#         return None
+
+#     name = str(name).strip()
+#     if not name:
+#         return None
+
+#     name = name.splitlines()[0].strip()
+#     name = name.lower()
+
+#     if name.startswith("interface "):
+#         name = name[len("interface "):].strip()
+
+#     return name
+    
+def clean_single_line(text: str):
+    if text is None:
+        return None
+
+    cleaned_text = str(text).strip()
+
+    if not cleaned_text:
+        return None
+
+    lines = cleaned_text.splitlines()
+
+    return lines[0].strip()
+
+def normalize_direction_token(text: str) -> str:
+    t = clean_single_line(text).lower()
+    if t.startswith("in"):
+        return "in"
+    if t.startswith("out"):
+        return "out"
+    return "None"
+
+def normalize_acl_name_token(text: str) -> Optional[str]:
+    t = clean_single_line(text)
+    if t.lower() == "none":
+        return None
+    return t
+
 
 def _norm_nl(s: str) -> str:
     s = (s or "").strip().lower()
@@ -91,7 +159,7 @@ import re
 
 def normalize_interface_name(name: str) -> str:
     name = (name or "").strip().lower()
-
+    
     if name.startswith("interface "):
         name = name.split(None, 1)[1].strip()
 
@@ -120,18 +188,44 @@ def normalize_interface_name(name: str) -> str:
     return name
 
 
-def _norm(s):
-    return (s or "").strip()
+def _norm(s: str) -> str:
+    normalized_value = (s or "").strip()
 
-def _norm_lower(s):
-    return _norm(s).lower()
-    
-def normalize_action(action):
+    return normalized_value
+
+
+def _norm_lower(s: str) -> str:
+    normalized_value = _norm(s)
+
+    return normalized_value.lower()
+
+
+def normalize_action(action: str) -> str:
     if not action:
         return ""
-    a = _norm_lower(action)
-    if a in ("allow", "permit", "permitted","accept","allowed"):
+
+    normalized_action = _norm_lower(action)
+
+    permit_actions = {
+        "allow",
+        "permit",
+        "permitted",
+        "accept",
+        "allowed",
+    }
+
+    deny_actions = {
+        "deny",
+        "block",
+        "blocked",
+        "denied",
+        "drop",
+    }
+
+    if normalized_action in permit_actions:
         return "permit"
-    if a in ("deny", "block", "blocked", "denied","drop"):
+
+    if normalized_action in deny_actions:
         return "deny"
-    return a
+
+    return normalized_action

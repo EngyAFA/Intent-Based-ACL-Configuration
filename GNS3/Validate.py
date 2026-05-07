@@ -13,7 +13,7 @@ from typing import Any, Dict, List, Optional, Tuple
 
 
 
-################## CONFIG ###########################
+################## default CONFIG ###########################
 OUTPUT_DIR = "GNS3_output"
 DEFAULT_TIMEOUT = 5
 RANDOM_SEED = 42
@@ -465,8 +465,11 @@ def apply_acl_config(
     acl_commands: List[str],
     consol: List[Dict[str, Any]],
 ) -> bool:
-    full_cmds = ["enable", "configure terminal"] + acl_commands + ["end", "write memory"]
-    out = router_send_commands(router_name, full_cmds, consol, timeout=10)
+    if not acl_commands:
+        return True  # nothing to apply
+        
+    # full_cmds = ["enable", "configure terminal"] + acl_commands + ["end", "write memory"] already processed in build_deploy_commands_q0_aware  before
+    out = router_send_commands(router_name, acl_commands, consol, timeout=10)
     return out is not None
 
 

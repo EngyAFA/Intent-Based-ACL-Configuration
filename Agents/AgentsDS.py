@@ -1,7 +1,9 @@
 import os
+import traceback
 
 from swarm import Swarm, Agent
 from Agents.promptsDS import *#build_interface_query_prompt, build_direction_query_prompt,  build_acl_name_query_prompt, build_entity_extraction_prompt
+from Helpers.Formats import normalize_interface_name, clean_single_line, normalize_direction_token, normalize_acl_name_token
 from Agents.deepseek_tool import *  # Import the DeepSeek function
 from openai import OpenAI
 from typing import Optional
@@ -19,52 +21,24 @@ deepseek_client = OpenAI(
 # ########### Initialize Swarm with DeepSeek model ###########
 client = Swarm(client=deepseek_client)#, model="deepseek-coder")
 
-########### Helping function: normalization functions ###########
-#################################################################
-
-def normalize_interface_name(name):
-    if name is None:
-        return None
-
-    name = str(name).strip()
-    if not name:
-        return None
-
-    name = name.splitlines()[0].strip()
-    name = name.lower()
-
-    if name.startswith("interface "):
-        name = name[len("interface "):].strip()
-
-    return name
-    
-def clean_single_line(text):
-    if text is None:
-        return None
-    text = str(text).strip()
-    if not text:
-        return None
-    return text.splitlines()[0].strip()
-
-def normalize_direction_token(text: str) -> str:
-    t = clean_single_line(text).lower()
-    if t.startswith("in"):
-        return "in"
-    if t.startswith("out"):
-        return "out"
-    return "None"
-
-def normalize_acl_name_token(text: str) -> Optional[str]:
-    t = clean_single_line(text)
-    if t.lower() == "none":
-        return None
-    return t
     
 ############# call the ACL placement resolver to get an answer for specific Query on the given topology #############
 ########################################################################################################################
 
-def resolve_acl_placement(*, topo, new_intent, hostname, config_text):
-    import traceback
+def resolve_acl_placement(
+    *,
+    topo,
+    new_intent: str,
+    hostname: str,
+    config_text: str,
+) -> dict:
+    """
+    it returns the following entities:
+        "Intf_Name"
+        "direction"
+        "ACLname"
+        "List_Found" to shower whether the list existed before or not
+    """
 
     try:
         # print("=== resolve_acl_placement: start ===")
@@ -138,7 +112,7 @@ def resolve_acl_placement(*, topo, new_intent, hostname, config_text):
         raise
 ############# call the Entity_extractor_agent to get the entities for the user intent  #############
 #####################################################################################################
-def Entity_Extractor_Evalcaller(context_variables):
+def Entity_Extractor_Evalcaller(context_variables: dict) -> str:
     # Step 1: build prompt
     prompt = build_entity_extraction_prompt(context_variables)
 
@@ -150,60 +124,84 @@ def Entity_Extractor_Evalcaller(context_variables):
 ############# call the ACL_generator_agent to generate the ACL for the given intent with topology  #############
 ##################################################################################################################
 
-def ACL_generator_caller(context_variables):
-            prompt = build_acl_generator_prompt(context_variables)
-            mode = (context_variables.get("mode") or "generate").strip().lower()
+def ACL_generator_caller(context_variables: dict) -> str:
+    prompt = build_acl_generator_prompt(context_variables)
+    mode = (context_variables.get("mode") or "generate").strip().lower()
     return deepseek_acl_generator(prompt, mode)
+
 
 ########### Helping function: extract entities regarding the rule and list existence ###########
 ################################################################################################
 
 # check if List exists and if Rule exists
-def extract_Foundentities(output):
+def extract_Foundentities(output: str) -> tuple:
     entities = {}
-    # Split the output into lines and process each line
-    for line in output.strip().split('\n'):
-        # Remove leading dashes and check for key-value format
-        line = line.lstrip('- ').strip()  # Remove leading dash and whitespace
-        if ': ' in line:  # Ensure there's a colon
-            key, value = line.split(': ', 1)  # Split on the first occurrence of ": "
-            entities[key.strip()] = value.strip() if value.strip() != "None" else None
 
-    List_exists = entities.get("List_Found")   
-    Rule_exists = entities.get("Rule_Found")  # Default to 'false' if not found
-    
+    # Split the output into lines and process each line
+    for line in output.strip().split("\n"):
+        # Remove leading dashes and check for key-value format
+        line = line.lstrip("- ").strip()
+
+        if ": " in line:
+            # Split on the first occurrence of ": "
+            key, value = line.split(": ", 1)
+            entities[key.strip()] = (
+                value.strip()
+                if value.strip() != "None"
+                else None
+            )
+
+    List_exists = entities.get("List_Found")
+    Rule_exists = entities.get("Rule_Found")
+
     return List_exists, Rule_exists
+
     
 ###########################################################################################
 ### Helping Function : Split the output into lines and extract entities to use them later ##
 ###########################################################################################
 
-def extract_entities(output):
+def extract_entities(output: str) -> tuple:
     entities = {}
+
     # Split the output into lines and process each line
-    for line in output.strip().split('\n'):
+    for line in output.strip().split("\n"):
         # Remove leading dashes and check for key-value format
-        line = line.lstrip('- ').strip()  # Remove leading dash and whitespace
-        if ': ' in line:  # Ensure there's a colon
-            key, value = line.split(': ', 1)  # Split on the first occurrence of ": "
-            entities[key.strip()] = value.strip() if value.strip() != "None" else None
+        line = line.lstrip("- ").strip()
+
+        if ": " in line:
+            # Split on the first occurrence of ": "
+            key, value = line.split(": ", 1)
+            entities[key.strip()] = (
+                value.strip()
+                if value.strip() != "None"
+                else None
+            )
 
     # Accessing the variables
     source_ip = entities.get("Source IP")
     destination_ip = entities.get("Destination IP")
-    
+
     # Print the extracted values for debugging
     # print(f"Destination IP: {destination_ip}")  # Debug print
     protocol = entities.get("Protocol")
     port = entities.get("Port")
     action = entities.get("Action")
-    app = entities.get("application")
-    src_Subnet = entities.get("Source IP Subnet")
-    dst_Subnet = entities.get("Destination IP Subnet")
-    if src_Subnet != None:
-        src_Subnet = src_Subnet.split('/')[0]
-    if dst_Subnet != None:
-        dst_Subnet = dst_Subnet.split('/')[0]
+    app = entities.get("Application")
+    source_subnet = entities.get("Source IP Subnet")
+    destination_subnet = entities.get("Destination IP Subnet")
+    # if src_Subnet != None:
+    #     src_Subnet = src_Subnet.split('/')[0]
+    # if dst_Subnet != None:
+    #     dst_Subnet = dst_Subnet.split('/')[0]
 
-    return source_ip, destination_ip, protocol, port, action, app, src_Subnet, dst_Subnet
-
+    return (
+        source_ip,
+        destination_ip,
+        protocol,
+        port,
+        action,
+        app,
+        source_subnet,
+        destination_subnet,
+    )

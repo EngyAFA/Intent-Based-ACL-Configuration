@@ -19,26 +19,32 @@ RFC1918_NETS = [
 #########                    3- extract router facts from json.                   #########
 ###########################################################################################
 
-def get_device_info(hostname, devices):
+def get_device_info(hostname: str, devices: list) -> tuple:
     for device in devices:
         if device.get("D_Name") == hostname:
-            IP = device.get("D_IP")
-            Port = device.get("D_Port")
-            return IP, Port
+            ip_address = device.get("D_IP")
+            port = device.get("D_Port")
+
+            return ip_address, port
 
     return None, None
-    
-def get_pc_name_by_ip(ip_address, Sub_Net):
+
+
+def get_pc_name_by_ip(ip_address: str, Sub_Net: list) -> str:
     # Reverse lookup for IP address in the dictionary
     for item in Sub_Net:
         if item.get("D_IP") == ip_address:
             return item.get("D_Name")
+
     return "PC name not found"
 
-def find_pcs_in_same_network(Sub_Net, ip_address): #Finds all PCs in the same network as the PC with the given target IP.
+
+def find_pcs_in_same_network(Sub_Net: list, ip_address: str) -> list:
+    # Finds all PCs in the same network as the PC with the given target IP.
 
     # Find the network of the target IP
     target_network = None
+
     for item in Sub_Net:
         if item.get("D_IP") == ip_address:
             target_network = item.get("D_Net")
@@ -48,7 +54,11 @@ def find_pcs_in_same_network(Sub_Net, ip_address): #Finds all PCs in the same ne
         return []
 
     # Find all PCs in the same network
-    same_network_pcs = [pc for pc in Sub_Net if pc.get("D_Net") == target_network]
+    same_network_pcs = []
+
+    for pc in Sub_Net:
+        if pc.get("D_Net") == target_network:
+            same_network_pcs.append(pc)
 
     return same_network_pcs
 
@@ -223,111 +233,160 @@ def extract_router_facts_from_json(router_json: dict):
 #         "inside_prefixes": inside_prefixes,
 #     }
 
-def _ip_in_prefix(ip, prefix):
-    return ipaddress.ip_address(ip) in ipaddress.ip_network(prefix, strict=False)
 
-
-
-def _parse_prefix(pfx):
+def _parse_prefix(prefix: str):
     """Return ipaddress.ip_network or None."""
-    if not pfx:
+    if not prefix:
         return None
-    pfx = str(pfx).strip()
-    if pfx.lower() == "dhcp":
+
+    prefix_text = str(prefix).strip()
+
+    if prefix_text.lower() == "dhcp":
         return None
+
     try:
         # If given as 'a.b.c.d' without /mask, treat as /32 (host) for safe comparisons
-        if "/" not in pfx:
-            return ipaddress.ip_network(pfx + "/32", strict=False)
-        return ipaddress.ip_network(pfx, strict=False)
+        if "/" not in prefix_text:
+            return ipaddress.ip_network(prefix_text + "/32", strict=False)
+
+        return ipaddress.ip_network(prefix_text, strict=False)
+
     except Exception:
         return None
-        
-def _ip_in_prefix(ip, pfx):
-    try:
-        ip_obj = ipaddress.ip_address(str(ip))
-        net = _parse_prefix(pfx)
-        return net is not None and ip_obj in net
-    except Exception:
-        return False
 
-def _prefix_is_inside(prefix,inside_set):
+
+# def _ip_in_prefix(ip: str, prefix: str) -> bool:
+#     try:
+#         ip_object = ipaddress.ip_address(str(ip))
+#         network = _parse_prefix(prefix)
+
+#         return network is not None and ip_object in network
+
+#     except Exception:
+#         return False
+
+
+def _prefix_is_inside(prefix: str, inside_set: set) -> bool:
     """
     True if prefix matches (or is contained by) one of inside_prefixes.
     Handles CIDR and also 'network-only' strings by matching the network address.
     """
-    net = _parse_prefix(prefix)
-    if net is None:
+    network = _parse_prefix(prefix)
+
+    if network is None:
         return False
 
-    for p in inside_set:
-        pnet = _parse_prefix(p)
-        if pnet is None:
+    for inside_prefix in inside_set:
+        inside_network = _parse_prefix(inside_prefix)
+
+        if inside_network is None:
             continue
+
         # If prefix is a host (/32), check membership; else check overlap/containment
-        if net.prefixlen == 32:
-            if net.network_address in pnet:
+        if network.prefixlen == 32:
+            if network.network_address in inside_network:
                 return True
+
         else:
             # consider inside if it overlaps/contained
-            if net.subnet_of(pnet) or pnet.subnet_of(net) or net.overlaps(pnet):
+            if (
+                network.subnet_of(inside_network)
+                or inside_network.subnet_of(network)
+                or network.overlaps(inside_network)
+            ):
                 return True
+
     return False
 
-def _find_iface_for_exact_prefix(prefix,router_interfaces ):
+
+def _find_iface_for_exact_prefix(prefix: str, router_interfaces: list):
     """Match exact interface prefix string if present."""
     if not prefix:
         return None
-    for i in (router_interfaces or []):
-        if (i.get("prefix") or "").strip() == str(prefix).strip():
-            return i
+
+    for interface in router_interfaces or []:
+        interface_prefix = (interface.get("prefix") or "").strip()
+
+        if interface_prefix == str(prefix).strip():
+            return interface
+
     return None
 
 
-def load_topology(topology_input):
+def load_topology(topology_input) -> dict:
     # topology_input can be: dict, json string, or file path
     if isinstance(topology_input, dict):
-        topo = topology_input
+        topology = topology_input
+
     elif isinstance(topology_input, str):
-        s = topology_input.strip()
-        if os.path.isfile(s):
-            with open(s, "r", encoding="utf-8") as f:
-                topo = json.load(f)
+        topology_text = topology_input.strip()
+
+        if os.path.isfile(topology_text):
+            with open(topology_text, "r", encoding="utf-8") as file:
+                topology = json.load(file)
+
         else:
-            topo = json.loads(s)
+            topology = json.loads(topology_text)
+
     else:
         raise TypeError(f"Unsupported topology type: {type(topology_input)}")
 
     # unwrap "root" if present
-    if isinstance(topo, dict) and "root" in topo and isinstance(topo["root"], dict):
-        topo = topo["root"]
+    if (
+        isinstance(topology, dict)
+        and "root" in topology
+        and isinstance(topology["root"], dict)
+    ):
+        topology = topology["root"]
 
-    return topo
-
-def get_objects_map(topology_input):
-    topo = load_topology(topology_input)
-    objs = topo.get("objects",{})
-    intf = topo.get("interfaces", {})
-
-    if not isinstance(objs, dict):
-        raise ValueError("Topology objects not found at topology['objects'] (after root unwrap).")
-    if not isinstance(intf, dict):
-        raise ValueError("Topology interfaces not found at topology['interfaces'] (after root unwrap).")
-    return objs,intf
+    return topology
 
 
-def is_any_token(x):
-    if x is None:
-        return False
-    s = str(x).strip().lower()
-    return s in {"any", "internet", "0.0.0.0", "0.0.0.0/0"}
+def get_objects_map(topology_input) -> tuple:
+    topology = load_topology(topology_input)
+    objects = topology.get("objects", {})
+    interfaces = topology.get("interfaces", {})
+
+    if not isinstance(objects, dict):
+        raise ValueError(
+            "Topology objects not found at topology['objects'] "
+            "(after root unwrap)."
+        )
+
+    if not isinstance(interfaces, dict):
+        raise ValueError(
+            "Topology interfaces not found at topology['interfaces'] "
+            "(after root unwrap)."
+        )
+
+    return objects, interfaces
+
+
+# def is_any_token(x: str) -> bool:
+#     if x is None:
+#         return False
+
+#     token_text = str(x).strip().lower()
+
+#     return token_text in {
+#         "any",
+#         "internet",
+#         "0.0.0.0",
+#         "0.0.0.0/0",
+#     }
+
 
 def extract_device_override(intent: str):
-    m = re.search(r"\bR\d+\b", intent, re.IGNORECASE)
-    return m.group(0).upper() if m else None
-    
+    match = re.search(r"\bR\d+\b", intent, re.IGNORECASE)
+
+    if match:
+        return match.group(0).upper()
+
+    return None
+
+
 # Return router connected to Cloud / WAN / Internet.
-def find_edge_router(interface_map):
+def find_edge_router(interface_map: dict):
     """
     Heuristics (first match wins):
     1) role/connected_to contains cloud/wan/internet/isp
@@ -337,30 +396,36 @@ def find_edge_router(interface_map):
     """
 
     # helper patterns
-    router_link_pat = re.compile(r"^r\d+:\S+$", re.IGNORECASE)   # e.g. R2:s0/0/0
-    switch_pat = re.compile(r"^sw\d+$", re.IGNORECASE)          # e.g. SW1
+    router_link_pattern = re.compile(r"^r\d+:\S+$", re.IGNORECASE)  # e.g. R2:s0/0/0
+    switch_pattern = re.compile(r"^sw\d+$", re.IGNORECASE)  # e.g. SW1
 
-    for router, ifaces in interface_map.items():
-        for _, data in ifaces.items():
+    for router, interfaces in interface_map.items():
+        for _, data in interfaces.items():
             role = (data.get("role") or "").lower()
             connected = (data.get("connected_to") or "").lower()
 
             # 1) explicit tags
-            if any(x in role for x in ["cloud", "wan", "internet", "isp"]):
+            if any(tag in role for tag in ["cloud", "wan", "internet", "isp"]):
                 return router
-            if any(x in connected for x in ["cloud", "wan", "internet", "isp", "nat"]):
+
+            if any(
+                tag in connected
+                for tag in ["cloud", "wan", "internet", "isp", "nat"]
+            ):
                 return router
 
     # 2) heuristic: interface connected_to is empty/unknown OR not router-link and not switch
-    for router, ifaces in interface_map.items():
-        for _, data in ifaces.items():
+    for router, interfaces in interface_map.items():
+        for _, data in interfaces.items():
             connected = (data.get("connected_to") or "").strip()
+
             if connected == "" or connected.lower() in {"none", "unknown"}:
                 return router
 
-            if router_link_pat.match(connected):
+            if router_link_pattern.match(connected):
                 continue  # router-to-router, not edge
-            if switch_pat.match(connected):
+
+            if switch_pattern.match(connected):
                 continue  # LAN side, not edge
 
             # Anything else (e.g., "Cloud1", "NAT1", "ISP", "Internet") → edge
@@ -398,13 +463,17 @@ def resolve(endpoint: Any, objects: Dict[str, Any]) -> Optional[Union[ipaddress.
 
 
 # Return the router whose interface subnet contains the given IP/network.
-def find_router_attached_to(target, interfaces):
+def find_router_attached_to(target, interfaces: dict):
     """Returns router name only (kept for compatibility)."""
-    ri = find_router_interface_attached_to(target, interfaces)
-    return ri[0] if ri else None
+    router_interface = find_router_interface_attached_to(target, interfaces)
+
+    if router_interface:
+        return router_interface[0]
+
+    return None
 
 
-def find_router_interface_attached_to(target, interfaces):
+def find_router_interface_attached_to(target, interfaces: dict):
     """
     Returns (router, interface) whose interface subnet contains target (host) or overlaps target (subnet).
     """
@@ -412,24 +481,31 @@ def find_router_interface_attached_to(target, interfaces):
         return None
 
     for router, ifaces in interfaces.items():
-        for if_name, data in ifaces.items():
-            ip = data.get("ip")
-            if not ip or ip == "dhcp":
+        for interface_name, data in ifaces.items():
+            ip_address = data.get("ip")
+
+            if not ip_address or ip_address == "dhcp":
                 continue
 
-            iface_net = ipaddress.ip_network(ip, strict=False)
+            interface_network = ipaddress.ip_network(
+                ip_address,
+                strict=False,
+            )
 
             if isinstance(target, ipaddress.IPv4Address):
-                if target in iface_net:
-                    return (router, if_name)
+                if target in interface_network:
+                    return router, interface_name
 
             if isinstance(target, ipaddress.IPv4Network):
-                if target.overlaps(iface_net):
-                    return (router, if_name)
+                if target.overlaps(interface_network):
+                    return router, interface_name
 
     return None
 
+
 # Detect if source is Internet / any.
-def is_internet(target):
-    return isinstance(target, ipaddress.IPv4Network) and str(target) == "0.0.0.0/0"
-    
+def is_internet(target) -> bool:
+    return (
+        isinstance(target, ipaddress.IPv4Network)
+        and str(target) == "0.0.0.0/0"
+    )

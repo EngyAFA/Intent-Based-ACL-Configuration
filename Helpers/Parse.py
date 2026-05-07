@@ -147,30 +147,36 @@ def _norm(s: str) -> str:
     return re.sub(r"[^a-z0-9]", "", s.lower())
 
 
-def ensure_topology_dict(network_topology):
+def ensure_topology_dict(network_topology) -> dict:
     if isinstance(network_topology, dict):
         return network_topology
 
     if isinstance(network_topology, str):
-        s = network_topology.strip()
+        topology_text = network_topology.strip()
 
-        if not s:
+        if not topology_text:
             raise ValueError("network_topology is an empty string")
 
         # case 1: file path
-        if os.path.isfile(s):
-            with open(s, "r", encoding="utf-8") as f:
-                return json.load(f)
+        if os.path.isfile(topology_text):
+            with open(topology_text, "r", encoding="utf-8") as file:
+                return json.load(file)
 
         # case 2: raw JSON text
-        if s.startswith("{") or s.startswith("["):
-            return json.loads(s)
+        if (
+            topology_text.startswith("{")
+            or topology_text.startswith("[")
+        ):
+            return json.loads(topology_text)
 
         raise ValueError(
-            f"network_topology is a string, but not valid JSON text and not a file path: {s!r}"
+            "network_topology is a string, but not valid JSON text "
+            f"and not a file path: {topology_text!r}"
         )
 
-    raise TypeError(f"Unsupported network_topology type: {type(network_topology)}")
+    raise TypeError(
+        f"Unsupported network_topology type: {type(network_topology)}"
+    )
 
 def find_attached_router(topology: dict, host_ip=None, cidr=None):
     """
@@ -455,10 +461,11 @@ def resolve_names(intent: str, topology: dict):
         "context_in_object": in_obj,
     }
     
-def parse_config_to_json(config_file):
-    cfg_config_file = config_file + '.cfg'
-    with open(cfg_config_file, 'r') as file:
-        config = file.readlines()
+def parse_config_to_json(config_file: str) -> None:
+    config_file_path = config_file + ".cfg"
+
+    with open(config_file_path, "r") as file:
+        config_lines = file.readlines()
 
     router_config = {}
     interfaces_map = {}
@@ -467,52 +474,56 @@ def parse_config_to_json(config_file):
     current_interface = None
     current_acl = None
 
-    def get_or_create_interface(name):
-        key = normalize_interface_name(name)
-        if key not in interfaces_map:
-            interfaces_map[key] = {
-                "name": key,
+    def get_or_create_interface(name: str) -> dict:
+        interface_key = normalize_interface_name(name)
+
+        if interface_key not in interfaces_map:
+            interfaces_map[interface_key] = {
+                "name": interface_key,
                 "ip_address": None,
                 "subnet_mask": None,
                 "access_group": None,
                 "dhcp": False,
                 "shutdown": False,
                 "nat": None,
-                "virtual_reassembly": False
+                "virtual_reassembly": False,
             }
-        return interfaces_map[key]
 
-    def get_or_create_acl(name):
+        return interfaces_map[interface_key]
+
+    def get_or_create_acl(name: str) -> dict:
         if name not in access_lists_map:
             access_lists_map[name] = {
                 "name": name,
-                "rules": []
+                "rules": [],
             }
+
         return access_lists_map[name]
 
-    for raw_line in config:
+    for raw_line in config_lines:
         line = raw_line.strip()
+
         if not line or line.startswith("!"):
             continue
 
         # Global router metadata
-        if line.startswith('version'):
-            router_config['version'] = line.split()[-1]
+        if line.startswith("version"):
+            router_config["version"] = line.split()[-1]
             continue
 
-        if line.startswith('hostname'):
-            router_config['hostname'] = line.split()[-1]
+        if line.startswith("hostname"):
+            router_config["hostname"] = line.split()[-1]
             continue
 
         # Start interface stanza
-        if line.startswith('interface'):
+        if line.startswith("interface"):
             interface_name = line.split()[-1]
             current_interface = get_or_create_interface(interface_name)
             current_acl = None
             continue
 
         # Start ACL stanza
-        if line.startswith('ip access-list'):
+        if line.startswith("ip access-list"):
             acl_name = line.split()[-1]
             current_acl = get_or_create_acl(acl_name)
             current_interface = None
@@ -520,126 +531,180 @@ def parse_config_to_json(config_file):
 
         # Interface subcommands
         if current_interface is not None:
-            if line.startswith('ip address'):
+            if line.startswith("ip address"):
                 ip_info = line.split()
-                if len(ip_info) == 3 and ip_info[2] == 'dhcp':
-                    current_interface['dhcp'] = True
+
+                if len(ip_info) == 3 and ip_info[2] == "dhcp":
+                    current_interface["dhcp"] = True
+
                 elif len(ip_info) >= 4:
-                    current_interface['ip_address'] = ip_info[2]
-                    current_interface['subnet_mask'] = ip_info[3]
+                    current_interface["ip_address"] = ip_info[2]
+                    current_interface["subnet_mask"] = ip_info[3]
+
                 else:
                     print(f"Warning: Invalid 'ip address' configuration: {line}")
+
                 continue
 
-            if line.startswith('ip access-group'):
+            if line.startswith("ip access-group"):
                 access_group_info = line.split()
                 acl_name = access_group_info[2]
-                direction = access_group_info[3] if len(access_group_info) > 3 else None
-                current_interface['access_group'] = acl_name
-                current_interface['direction'] = direction
+                direction = (
+                    access_group_info[3]
+                    if len(access_group_info) > 3
+                    else None
+                )
+
+                current_interface["access_group"] = acl_name
+                current_interface["direction"] = direction
                 continue
 
-            if line == 'shutdown':
-                current_interface['shutdown'] = True
+            if line == "shutdown":
+                current_interface["shutdown"] = True
                 continue
 
-            if line.startswith('ip nat inside'):
-                current_interface['nat'] = 'inside'
+            if line.startswith("ip nat inside"):
+                current_interface["nat"] = "inside"
                 continue
 
-            if line.startswith('ip virtual-reassembly'):
-                current_interface['virtual_reassembly'] = True
+            if line.startswith("ip virtual-reassembly"):
+                current_interface["virtual_reassembly"] = True
                 continue
 
-            if line.startswith('clock rate'):
+            if line.startswith("clock rate"):
                 try:
-                    current_interface['clock_rate'] = int(line.split()[-1])
+                    current_interface["clock_rate"] = int(line.split()[-1])
+
                 except Exception:
                     pass
+
                 continue
 
         # ACL rule lines
-        if current_acl is not None and (line.startswith('permit') or line.startswith('deny') or re.match(r'^\d+\s+(permit|deny)\b', line)):
-            parsed = parse_acl_rule_line(current_acl["name"], line)
-            if parsed is not None:
+        is_acl_rule_line = (
+            line.startswith("permit")
+            or line.startswith("deny")
+            or re.match(r"^\d+\s+(permit|deny)\b", line)
+        )
+
+        if current_acl is not None and is_acl_rule_line:
+            parsed_rule = parse_acl_rule_line(current_acl["name"], line)
+
+            if parsed_rule is not None:
                 rule_info = {
-                    "action": parsed.action,
-                    "protocol": parsed.protocol,
+                    "action": parsed_rule.action,
+                    "protocol": parsed_rule.protocol,
                     "source": {
-                        "type": "host" if parsed.src.endswith("/32") else ("any" if parsed.src == "0.0.0.0/0" else "ip"),
-                        "address": parsed.src
+                        "type": (
+                            "host"
+                            if parsed_rule.src.endswith("/32")
+                            else (
+                                "any"
+                                if parsed_rule.src == "0.0.0.0/0"
+                                else "ip"
+                            )
+                        ),
+                        "address": parsed_rule.src,
                     },
                     "destination": {
-                        "type": "host" if parsed.dst.endswith("/32") else ("any" if parsed.dst == "0.0.0.0/0" else "ip"),
-                        "address": parsed.dst
-                    }
+                        "type": (
+                            "host"
+                            if parsed_rule.dst.endswith("/32")
+                            else (
+                                "any"
+                                if parsed_rule.dst == "0.0.0.0/0"
+                                else "ip"
+                            )
+                        ),
+                        "address": parsed_rule.dst,
+                    },
                 }
-                if parsed.src_port is not None:
-                    rule_info["src_port"] = parsed.src_port
-                if parsed.dst_port is not None:
-                    rule_info["dst_port"] = parsed.dst_port
+
+                if parsed_rule.src_port is not None:
+                    rule_info["src_port"] = parsed_rule.src_port
+
+                if parsed_rule.dst_port is not None:
+                    rule_info["dst_port"] = parsed_rule.dst_port
 
                 current_acl["rules"].append(rule_info)
+
             continue
 
         # OSPF
-        if line.startswith('router ospf'):
+        if line.startswith("router ospf"):
             ospf_process_id = line.split()[-1]
-            router_config['router_ospf'] = {
+            router_config["router_ospf"] = {
                 "process_id": int(ospf_process_id),
-                "networks": []
+                "networks": [],
             }
             current_interface = None
             current_acl = None
             continue
 
-        if line.startswith('network') and 'router_ospf' in router_config:
+        if line.startswith("network") and "router_ospf" in router_config:
             network_info = line.split()
+
             if len(network_info) >= 5:
                 network = network_info[1]
                 wildcard_mask = network_info[2]
                 area = network_info[4]
-                router_config['router_ospf']['networks'].append({
-                    "network": network,
-                    "wildcard_mask": wildcard_mask,
-                    "area": area
-                })
+
+                router_config["router_ospf"]["networks"].append(
+                    {
+                        "network": network,
+                        "wildcard_mask": wildcard_mask,
+                        "area": area,
+                    }
+                )
+
             continue
 
         # Static routes
-        if line.startswith('ip route'):
+        if line.startswith("ip route"):
             route_info = line.split()
+
             if len(route_info) >= 5:
                 destination = route_info[2]
                 mask = route_info[3]
                 next_hop = route_info[4]
-                route_name = route_info[6] if 'name' in route_info and len(route_info) > 6 else None
-                router_config.setdefault('static_routes', []).append({
-                    "destination": destination,
-                    "mask": mask,
-                    "next_hop": next_hop,
-                    "name": route_name
-                })
+                route_name = (
+                    route_info[6]
+                    if "name" in route_info and len(route_info) > 6
+                    else None
+                )
+
+                router_config.setdefault("static_routes", []).append(
+                    {
+                        "destination": destination,
+                        "mask": mask,
+                        "next_hop": next_hop,
+                        "name": route_name,
+                    }
+                )
+
             continue
 
         # Line configs
-        if line.startswith('line'):
+        if line.startswith("line"):
             line_config = line.split()
             line_type = line_config[1]
+
             if len(line_config) > 2:
                 line_range = line_config[2]
                 line_key = f"{line_type}_{line_range}"
+
             else:
                 line_key = f"{line_type}_0"
 
-            router_config.setdefault('lines', {})[line_key] = {}
+            router_config.setdefault("lines", {})[line_key] = {}
             current_interface = None
             current_acl = None
             continue
 
-    router_config['interfaces'] = list(interfaces_map.values())
-    router_config['access_lists'] = list(access_lists_map.values())
+    router_config["interfaces"] = list(interfaces_map.values())
+    router_config["access_lists"] = list(access_lists_map.values())
 
-    json_config_file = config_file + '.json'
-    with open(json_config_file, 'w') as json_file:
+    json_file_path = config_file + ".json"
+
+    with open(json_file_path, "w") as json_file:
         json.dump(router_config, json_file, indent=4)

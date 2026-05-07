@@ -1,0 +1,171 @@
+
+$ terminal length 0
+terminal length 0
+R2#
+
+$ show ip interface brief
+show ip interface brief
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            unassigned      YES DHCP   up                    up      
+Serial0/0                  172.16.40.1     YES NVRAM  up                    up      
+FastEthernet0/1            10.133.14.179   YES DHCP   up                    up      
+Serial0/1                  172.16.20.2     YES NVRAM  up                    up      
+Serial0/2                  unassigned      YES NVRAM  administratively down down    
+FastEthernet1/0            172.16.30.1     YES NVRAM  up                    up      
+R2#
+
+$ show ip route
+show ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is 10.133.14.1 to network 0.0.0.0
+
+     172.16.0.0/24 is subnetted, 4 subnets
+C       172.16.40.0 is directly connected, Serial0/0
+C       172.16.30.0 is directly connected, FastEthernet1/0
+C       172.16.20.0 is directly connected, Serial0/1
+S       172.16.10.0 [1/0] via 172.16.20.1
+     10.0.0.0/24 is subnetted, 1 subnets
+C       10.133.14.0 is directly connected, FastEthernet0/1
+S*   0.0.0.0/0 [254/0] via 10.133.14.1
+R2#
+================================================================================
+
+$ terminal length 0
+terminal length 0
+R2#
+
+$ enable
+enable
+R2#
+
+$ configure terminal
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+R2(config)#
+
+$ ip access-list extended ACL_FASTETHERNET1_0_IN
+ip access-list extended ACL_FASTETHERNET1_0_IN
+R2(config-ext-nacl)#
+
+$ deny icmp any 172.16.30.0 0.0.0.255
+deny icmp any 172.16.30.0 0.0.0.255
+R2(config-ext-nacl)#
+
+$ interface fastethernet1/0
+interface fastethernet1/0
+R2(config-if)#
+
+$ ip access-group ACL_FASTETHERNET1_0_IN in
+ip access-group ACL_FASTETHERNET1_0_IN in
+R2(config-if)#
+
+$  ip access-group ACL_FASTETHERNET1_0_IN out
+ ip access-group ACL_FASTETHERNET1_0_IN out
+R2(config-if)#
+
+$ end
+end
+R2#
+
+$ write memory
+write memory
+Building configuration...
+
+*Mar  1 00:04:27.943: %SYS-5-CONFIG_I: Configured from console by console[OK]
+R2#
+================================================================================
+
+$ terminal length 0
+terminal length 0
+R2#
+
+$ show access-lists
+show access-lists
+Extended IP access list ACL_F1_0_IN
+    10 permit ip host 172.16.30.3 any
+    20 deny ip host 172.16.30.3 any
+Extended IP access list ACL_FASTETHERNET1_0_IN
+    10 deny icmp any 172.16.30.0 0.0.0.255
+Extended IP access list ACL_S0_1_OUT
+    10 permit icmp host 172.16.10.3 host 172.16.30.3
+R2#
+
+$ show running-config | include access-group
+show running-config | include access-group
+ ip access-group ACL_S0_1_IN in
+ ip access-group ACL_S0_1_OUT out
+ ip access-group ACL_FASTETHERNET1_0_IN in
+ ip access-group ACL_FASTETHERNET1_0_IN out
+R2#
+================================================================================
+
+$ terminal length 0
+terminal length 0
+R2#
+
+$ show ip interface brief
+show ip interface brief
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            unassigned      YES DHCP   up                    up      
+Serial0/0                  172.16.40.1     YES NVRAM  up                    up      
+FastEthernet0/1            10.133.14.179   YES DHCP   up                    up      
+Serial0/1                  172.16.20.2     YES NVRAM  up                    up      
+Serial0/2                  unassigned      YES NVRAM  administratively down down    
+FastEthernet1/0            172.16.30.1     YES NVRAM  up                    up      
+R2#
+
+$ show ip route
+show ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is 10.133.14.1 to network 0.0.0.0
+
+     172.16.0.0/24 is subnetted, 4 subnets
+C       172.16.40.0 is directly connected, Serial0/0
+C       172.16.30.0 is directly connected, FastEthernet1/0
+C       172.16.20.0 is directly connected, Serial0/1
+S       172.16.10.0 [1/0] via 172.16.20.1
+     10.0.0.0/24 is subnetted, 1 subnets
+C       10.133.14.0 is directly connected, FastEthernet0/1
+S*   0.0.0.0/0 [254/0] via 10.133.14.1
+R2#
+================================================================================
+
+$ terminal length 0
+terminal length 0
+R2#
+
+$ clear access-list counters
+clear access-list counters
+
+R2#
+================================================================================
+
+$ terminal length 0
+terminal length 0
+R2#
+
+$ show access-lists
+show access-lists
+Extended IP access list ACL_F1_0_IN
+    10 permit ip host 172.16.30.3 any
+    20 deny ip host 172.16.30.3 any
+Extended IP access list ACL_FASTETHERNET1_0_IN
+    10 deny icmp any 172.16.30.0 0.0.0.255
+Extended IP access list ACL_S0_1_OUT
+    10 permit icmp host 172.16.10.3 host 172.16.30.3
+R2#
+================================================================================

@@ -227,3 +227,25 @@ Run the notebook cells
 Review Batfish and GNS3 validation results
 
 If validation succeeds, promote the candidate config to the original router config
+
+*Note:
+If you use another topology, be sure about the changes in the topology inside :
+```
+Helpers.env
+Helpers.norm_device
+Helpers.Finder.extract_router_facts_from_json
+Helpers.Formats.normalize_interface_name
+Batfish.preprocess._norm_intf
+Batfish.preprocess._infer_iface_subnet_from_subnet_db
+GNS3.GNS3.Router_Access
+GNS3.Validate -> default CONFIG variable and class Endpoint values
+input variables + default variables  (e.x, Sub_Net, Consol, etc) in ACL_generate_System , ACL_generate_Evaluation_DeepSeek and ACL_generate_Evaluation_GPT
+```
+
+## Network Topology
+- We used the following Topology to evaluate the system:
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/d36f2e31-7fae-4105-ad0d-8517cdc35ed1" />
+
+- Also, we used the topology described in .\config folder to test the system, its diagram is :
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/8cc33ea5-11c8-47bb-95c2-f5af19d09907" />
+

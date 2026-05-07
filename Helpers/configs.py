@@ -3,8 +3,8 @@ import re
 from Helpers.Read_Files import *
 from Helpers.Parse import parse_config_to_json
 from Helpers.Formats import normalize_interface_name
-from typing import Any, Dict, Iterable, List, Optional, Tuple, Union
 from Batfish.preprocess import set_acl_attachment_raw
+from typing import Any, Dict, Iterable, List, Optional, Tuple, Union
 
 ############# Helping function : extract ACL name from a given configs (commands) ############## 
 ################################################################################################
@@ -61,13 +61,19 @@ def process_configuration(input_conf: str) -> str:
     
 ####################### Generate updated config file of a router = config2 ########################
 ####################################################################################################
-def generate_config2_file(file_path, Whole_configuration, Interface_ACL, topology_file, File_name):
+def generate_config2_file(
+    file_path: str,
+    Whole_configuration: str,
+    Interface_ACL: str,
+    topology_file: str,
+    File_name: str,
+) -> list:
     extra_rule, extra_ACL = extract_rule_and_ACL_lines(Whole_configuration)
     rules = Rule_ACname(extra_ACL)
 
-    file_path2 = file_path + '/' + File_name + '.cfg'
-    topology_content = read_topology_file(file_path2)
-    topology_file = ''.join(topology_content) if topology_content else ""
+    config_file_path = file_path + "/" + File_name + ".cfg"
+    topology_content = read_topology_file(config_file_path)
+    topology_file = "".join(topology_content) if topology_content else ""
 
     context_variables = {
         "topology_file": topology_file,
@@ -77,15 +83,21 @@ def generate_config2_file(file_path, Whole_configuration, Interface_ACL, topolog
     }
 
     updated_config = add_updated_router_cmd(context_variables)
+    updated_file_path = file_path + "/" + File_name + "_2.cfg"
 
-    with open(file_path + '/' + File_name + "_2.cfg", "w") as file:
+    with open(updated_file_path, "w") as file:
         file.write(updated_config)
 
-    parse_config_to_json(file_path + '/' + File_name + "_2")
+    parse_config_to_json(file_path + "/" + File_name + "_2")
+
     return rules
 ####################### Generate updated config file of a router = config2  in case applied on Interface without generating all configs ########################
 ####################################################################################################
-def generate_config2_file_apply_only(file_path,Whole_configuration, File_name):
+def generate_config2_file_apply_only(
+    file_path: str,
+    Whole_configuration: str,
+    File_name: str,
+) -> dict:
     """
     Whole_configuration: LLM output that contains ONLY:
         interface X
@@ -93,68 +105,90 @@ def generate_config2_file_apply_only(file_path,Whole_configuration, File_name):
     Writes updated config to File_name_2.cfg and parses it.
     """
     # Load original config
-    file_path2 = "./configs/" + File_name + ".cfg"
-    topology_content = read_topology_file(file_path2)
-    original_cfg = ''.join(topology_content) if topology_content else ""
+    config_file_path = "./configs/" + File_name + ".cfg"
+    topology_content = read_topology_file(config_file_path)
+    original_config = "".join(topology_content) if topology_content else ""
 
     # Append the interface apply lines (or merge smarter if you want)
-    updated_cfg = original_cfg.rstrip() + "\n!\n" + Whole_configuration.strip() + "\n"
+    updated_config = (
+        original_config.rstrip()
+        + "\n!\n"
+        + Whole_configuration.strip()
+        + "\n"
+    )
 
     # Write _2.cfg
-    out_path = "./configs/" + File_name + "_2.cfg"
-    with open(out_path, "w") as f:
-        f.write(updated_cfg)
+    output_file_path = "./configs/" + File_name + "_2.cfg"
+
+    with open(output_file_path, "w") as file:
+        file.write(updated_config)
 
     parse_config_to_json("./configs/" + File_name + "_2")
+
     return {"applied_only": True}
     
 # #### extract the 'rule line' and 'ACL block' from the generated configuration
-def extract_rule_and_ACL_lines(config):
+def extract_rule_and_ACL_lines(config: str) -> tuple:
     """
     Extract:
       - ACL block (only the generated one)
       - interface apply rule (ip access-group ...)
     """
     lines = config.splitlines()
-    Rule = None
-    ACL_lines = []
+
+    rule = None
+    acl_lines = []
 
     for line in lines:
-        s = line.strip()
-        if s.startswith("ip access-group"):
-            Rule = s
-        elif s.startswith("ip access-list") or s.startswith("permit") or s.startswith("deny"):
-            ACL_lines.append(s)
+        stripped_line = line.strip()
 
-    ACL = "\n".join(ACL_lines) if ACL_lines else None
-    if ACL:
-        ACL = ACL.strip() + "\n!"
-    return Rule, ACL
+        if stripped_line.startswith("ip access-group"):
+            rule = stripped_line
+
+        elif (
+            stripped_line.startswith("ip access-list")
+            or stripped_line.startswith("permit")
+            or stripped_line.startswith("deny")
+        ):
+            acl_lines.append(stripped_line)
+
+    acl = "\n".join(acl_lines) if acl_lines else None
+
+    if acl:
+        acl = acl.strip() + "\n!"
+
+    return rule, acl
 
 
 ################ extract the rule from the generated function ################
 ##############################################################################
 # by help of the function(extract_rule_and_ACL_lines)
-def Rule_ACname(Rule):
+def Rule_ACname(Rule: str) -> list:
     rules = []
-    S_lines = Rule.splitlines()
-    # Iterate through each line to find the rule that starts with 'permit' or 'deny'
-    for line in S_lines:
-        line = line.strip()
-        if line.startswith('permit') or line.startswith('deny'):
-            rules.append(line)
+    rule_lines = Rule.splitlines()
+
+    for line in rule_lines:
+        stripped_line = line.strip()
+
+        if (
+            stripped_line.startswith("permit")
+            or stripped_line.startswith("deny")
+        ):
+            rules.append(stripped_line)
+
     return rules
 
 # #### generate an updated configuration file for the router by adding the lines corresponding to the user intents. ###
 #######################################################################################################################
 
-def add_updated_router_cmd(context_variables):
-    topology_file   = context_variables.get("topology_file", "") or ""
-    interface_name  = context_variables.get("interface_name", "") or ""
-    Rule            = context_variables.get("Rule", "") or ""
-    ACL             = context_variables.get("ACL", "") or ""
+def add_updated_router_cmd(context_variables: dict) -> str:
+    topology_file = context_variables.get("topology_file", "") or ""
+    interface_name = context_variables.get("interface_name", "") or ""
+    rule = context_variables.get("Rule", "") or ""
+    acl = context_variables.get("ACL", "") or ""
 
     interface_name = interface_name.strip()
+
     if interface_name.lower().startswith("interface "):
         interface_name = interface_name.split(None, 1)[1].strip()
 
@@ -163,55 +197,83 @@ def add_updated_router_cmd(context_variables):
 
     # extract ACL name from ACL block
     acl_name = None
-    ACL = ACL.strip()
-    acl_lines = ACL.splitlines()
-    for ln in acl_lines:
-        s = ln.strip()
-        m = re.match(r"^ip access-list extended (\S+)$", s, re.IGNORECASE)
-        if m:
-            acl_name = m.group(1)
+    acl = acl.strip()
+    acl_lines = acl.splitlines()
+
+    for line in acl_lines:
+        stripped_line = line.strip()
+        match = re.match(
+            r"^ip access-list extended (\S+)$",
+            stripped_line,
+            re.IGNORECASE,
+        )
+
+        if match:
+            acl_name = match.group(1)
             break
 
     # 1) rename hostname
     lines = topology_file.splitlines()
     renamed_lines = []
+
     for line in lines:
         if line.startswith("hostname"):
             parts = line.split()
+
             if len(parts) == 2 and not parts[1].endswith("_2"):
                 line = f"hostname {parts[1]}_2"
+
         renamed_lines.append(line)
 
-    cfg_text = "\n".join(renamed_lines) + "\n"
+    config_text = "\n".join(renamed_lines) + "\n"
 
     # 2) replace ACL block if exists, else insert once before first interface
-    if ACL and acl_name:
-        acl_block = ACL + "\n!"
-        acl_pat = rf"(?ms)^ip access-list extended {re.escape(acl_name)}\n.*?(?=^ip access-list extended |\Z|^interface )"
+    if acl and acl_name:
+        acl_block = acl + "\n!"
+        acl_pattern = (
+            rf"(?ms)^ip access-list extended {re.escape(acl_name)}\n"
+            r".*?(?=^ip access-list extended |\Z|^interface )"
+        )
 
-        if re.search(acl_pat, cfg_text):
-            cfg_text = re.sub(acl_pat, acl_block + "\n", cfg_text)
+        if re.search(acl_pattern, config_text):
+            config_text = re.sub(
+                acl_pattern,
+                acl_block + "\n",
+                config_text,
+            )
+
         else:
-            m_first_intf = re.search(r"(?m)^interface\s+\S+", cfg_text)
-            if m_first_intf:
-                cfg_text = (
-                    cfg_text[:m_first_intf.start()]
-                    + acl_block + "\n"
-                    + cfg_text[m_first_intf.start():]
+            first_interface_match = re.search(
+                r"(?m)^interface\s+\S+",
+                config_text,
+            )
+
+            if first_interface_match:
+                config_text = (
+                    config_text[:first_interface_match.start()]
+                    + acl_block
+                    + "\n"
+                    + config_text[first_interface_match.start():]
                 )
+
             else:
-                cfg_text = cfg_text.rstrip() + "\n" + acl_block + "\n"
+                config_text = config_text.rstrip() + "\n" + acl_block + "\n"
 
     # 3) apply interface rule cleanly using set_acl_attachment_raw
-    if Rule.strip() and acl_name:
-        m_rule = re.search(r"\b(in|out)\b\s*$", Rule.strip(), re.IGNORECASE)
-        if m_rule:
-            direction = m_rule.group(1).lower()
-            cfg_text = set_acl_attachment_raw(
-                cfg_text=cfg_text,
+    if rule.strip() and acl_name:
+        rule_match = re.search(
+            r"\b(in|out)\b\s*$",
+            rule.strip(),
+            re.IGNORECASE,
+        )
+
+        if rule_match:
+            direction = rule_match.group(1).lower()
+            config_text = set_acl_attachment_raw(
+                cfg_text=config_text,
                 acl_name=acl_name,
                 intf_name=interface_name,
                 direction=direction,
             )
 
-    return cfg_text
+    return config_text

@@ -87,24 +87,5 @@
             "virtual_reassembly": false
         }
     ],
-    "access_lists": [
-        {
-            "name": "ACL_S0_0_IN",
-            "rules": [
-                {
-                    "action": "deny",
-                    "protocol": "tcp",
-                    "source": {
-                        "type": "any",
-                        "address": "0.0.0.0/0"
-                    },
-                    "destination": {
-                        "type": "ip",
-                        "address": "172.16.50.0/24"
-                    },
-                    "dst_port": 22
-                }
-            ]
-        }
-    ]
+    "access_lists": []
 }

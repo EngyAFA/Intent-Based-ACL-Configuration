@@ -1,0 +1,25 @@
+Command: ping 172.16.30.2
+
+Welcome to Virtual PC Simulator, version 0.8.3
+Dedicated to Daling.
+Build time: Sep  9 2023 11:15:00
+Copyright (c) 2007-2015, Paul Meng (mirnshi@gmail.com)
+All rights reserved.
+
+VPCS is free software, distributed under the terms of the "BSD" licence.
+Source code and license can be found at vpcs.sf.net.
+For more information, please visit wiki.freecode.com.cn.
+
+Press '?' to get help.
+
+Executing the startup file
+
+
+Checking for duplicate address...
+PC1 : 172.16.10.2 255.255.255.0 gateway 172.16.10.1
+
+PC1> ping 172.16.30.2
+
+*172.16.10.1 icmp_seq=1 ttl=255 time=9.308 ms (ICMP type:3, code:13, Communication administratively prohibited)
+
+--------------------------------------------------------------------------------

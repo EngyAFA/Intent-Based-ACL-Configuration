@@ -84,12 +84,31 @@
             "name": "f1/0",
             "ip_address": "172.16.30.1",
             "subnet_mask": "255.255.255.0",
-            "access_group": null,
+            "access_group": "ACL_FASTETHERNET1_0_IN",
             "dhcp": false,
             "shutdown": false,
             "nat": null,
-            "virtual_reassembly": false
+            "virtual_reassembly": false,
+            "direction": "out"
         }
     ],
-    "access_lists": []
+    "access_lists": [
+        {
+            "name": "ACL_FASTETHERNET1_0_IN",
+            "rules": [
+                {
+                    "action": "deny",
+                    "protocol": "icmp",
+                    "source": {
+                        "type": "any",
+                        "address": "0.0.0.0/0"
+                    },
+                    "destination": {
+                        "type": "ip",
+                        "address": "172.16.30.0/24"
+                    }
+                }
+            ]
+        }
+    ]
 }

@@ -61,12 +61,11 @@
             "name": "f0/1",
             "ip_address": "172.16.10.1",
             "subnet_mask": "255.255.255.0",
-            "access_group": "ACL_F0_1_IN",
+            "access_group": null,
             "dhcp": false,
             "shutdown": false,
             "nat": "inside",
-            "virtual_reassembly": true,
-            "direction": "out"
+            "virtual_reassembly": true
         },
         {
             "name": "s0/1",
@@ -90,60 +89,5 @@
             "virtual_reassembly": false
         }
     ],
-    "access_lists": [
-        {
-            "name": "ACL_F0_1_IN",
-            "rules": [
-                {
-                    "action": "deny",
-                    "protocol": "tcp",
-                    "source": {
-                        "type": "any",
-                        "address": "0.0.0.0/0"
-                    },
-                    "destination": {
-                        "type": "ip",
-                        "address": "172.16.10.0/24"
-                    },
-                    "dst_port": 80
-                }
-            ]
-        },
-        {
-            "name": "ACL_f0/1_IN",
-            "rules": [
-                {
-                    "action": "deny",
-                    "protocol": "tcp",
-                    "source": {
-                        "type": "any",
-                        "address": "0.0.0.0/0"
-                    },
-                    "destination": {
-                        "type": "ip",
-                        "address": "172.16.10.0/24"
-                    },
-                    "dst_port": 80
-                }
-            ]
-        },
-        {
-            "name": "ACL_F0/1_IN",
-            "rules": [
-                {
-                    "action": "deny",
-                    "protocol": "tcp",
-                    "source": {
-                        "type": "any",
-                        "address": "0.0.0.0/0"
-                    },
-                    "destination": {
-                        "type": "ip",
-                        "address": "172.16.10.0/24"
-                    },
-                    "dst_port": 80
-                }
-            ]
-        }
-    ]
+    "access_lists": []
 }

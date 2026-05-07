@@ -1,10 +1,10 @@
+import os
 import json
 import ipaddress
-import os
 from typing import Optional
 
 
-def _ensure_topology_dict(network_topology):
+def _ensure_topology_dict(network_topology) -> dict:
     if network_topology is None:
         return {}
 
@@ -12,34 +12,41 @@ def _ensure_topology_dict(network_topology):
         return network_topology
 
     if isinstance(network_topology, str):
-        s = network_topology.strip()
+        topology_text = network_topology.strip()
 
-        if not s:
+        if not topology_text:
             return {}
 
         # If user passed a file path instead of JSON text
-        if os.path.isfile(s):
-            with open(s, "r", encoding="utf-8") as f:
-                content = f.read().strip()
+        if os.path.isfile(topology_text):
+            with open(topology_text, "r", encoding="utf-8") as file:
+                content = file.read().strip()
+
                 if not content:
                     return {}
+
                 return json.loads(content)
 
         # If it looks like JSON text
-        if s.startswith("{") or s.startswith("["):
-            return json.loads(s)
+        if topology_text.startswith("{") or topology_text.startswith("["):
+            return json.loads(topology_text)
 
         # otherwise it is not valid JSON text
-        raise ValueError(f"network_topology is a string but not JSON text or valid file path: {s[:120]!r}")
+        raise ValueError(
+            "network_topology is a string but not JSON text "
+            f"or valid file path: {topology_text[:120]!r}"
+        )
 
-    raise TypeError(f"Unsupported network_topology type: {type(network_topology)}")
+    raise TypeError(
+        f"Unsupported network_topology type: {type(network_topology)}"
+    )
 
 
-def norm_device(x):
+def norm_device(x: str) -> str:
     if x is None:
         return None
 
-    s = str(x).strip().lower()
+    normalized_device = str(x).strip().lower()
 
     aliases = {
         "router1": "r1",
@@ -50,7 +57,7 @@ def norm_device(x):
         "r3_2": "r3",
     }
 
-    return aliases.get(s, s)
+    return aliases.get(normalized_device, normalized_device)
 
 def wildcard_to_prefix(wc: str) -> int:
     wc_int = int(ipaddress.IPv4Address(wc))
@@ -92,61 +99,75 @@ def infer_wan_edge_router_from_topology(network_topology: dict) -> Optional[str]
     return None
 
 
-def build_router_networks_from_topology(network_topology: dict):
+def build_router_networks_from_topology(network_topology: dict) -> dict:
     network_topology = _ensure_topology_dict(network_topology)
 
     router_networks = {}
     interfaces = network_topology.get("interfaces", {})
 
     for router_name, ifaces in interfaces.items():
-        r = norm_device(router_name)
-        nets = []
+        normalized_router = norm_device(router_name)
+        networks = []
 
-        for _, meta in ifaces.items():
-            ip_cidr = meta.get("ip")
+        for _, metadata in ifaces.items():
+            ip_cidr = metadata.get("ip")
+
             if not ip_cidr:
                 continue
+
             try:
-                iface = ipaddress.ip_interface(ip_cidr)
-                nets.append(iface.network)
+                interface = ipaddress.ip_interface(ip_cidr)
+                networks.append(interface.network)
+
             except Exception:
                 continue
 
-        seen = set()
-        unique_nets = []
-        for n in nets:
-            key = str(n)
-            if key not in seen:
-                seen.add(key)
-                unique_nets.append(n)
+        seen_networks = set()
+        unique_networks = []
 
-        router_networks[r] = unique_nets
+        for network in networks:
+            network_key = str(network)
+
+            if network_key not in seen_networks:
+                seen_networks.add(network_key)
+                unique_networks.append(network)
+
+        router_networks[normalized_router] = unique_networks
 
     return router_networks
 
 
-def _to_ip_obj(x):
+def _to_ip_obj(x: str):
     if x is None:
         return None
-    s = str(x).strip().lower()
-    if s in {"any", "internet"}:
+
+    ip_text = str(x).strip().lower()
+
+    if ip_text in {"any", "internet"}:
         return None
-    if "/" in s:
-        s = s.split("/")[0]
+
+    if "/" in ip_text:
+        ip_text = ip_text.split("/")[0]
+
     try:
-        return ipaddress.ip_address(s)
+        return ipaddress.ip_address(ip_text)
+
     except Exception:
         return None
 
 
-def _to_net_obj(x):
+def _to_net_obj(x: str):
     if x is None:
         return None
-    s = str(x).strip().lower()
-    if s in {"any", "internet"}:
+
+    network_text = str(x).strip().lower()
+
+    if network_text in {"any", "internet"}:
         return ipaddress.ip_network("0.0.0.0/0")
+
     try:
-        return ipaddress.ip_network(s, strict=False)
+        return ipaddress.ip_network(network_text, strict=False)
+
     except Exception:
         return None
 

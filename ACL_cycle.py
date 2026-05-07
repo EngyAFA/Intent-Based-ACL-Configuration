@@ -16,9 +16,9 @@ from typing import Any, Dict, List
 from Batfish.Batfish import Batfish_validate_until_ok, _save_candidate_to_original
 from GNS3.Validate import ACLRuleIntent, validate_acl_in_gns3
 from Helpers.Parse import parse_config_to_json
-
-from Agents.multiAgent import run_ACL_workflow, build_deploy_commands_q0_aware
-# from Agents.multiAgentDS import run_ACL_workflow, build_deploy_commands_q0_aware
+from Agents.workflow_base import build_deploy_commands_q0_aware
+from Agents.multiAgent import run_ACL_workflow
+# from Agents.multiAgentDS import run_ACL_workflow
 
 
 def _final_status_is_ok(result: Dict[str, Any]) -> bool:
