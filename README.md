@@ -6,7 +6,7 @@ The workflow is:
 
 Intent → LLM ACL generation → Batfish verification/fine-tuning → GNS3 verification → final approved router configuration
 
-<img width="960" height="720" alt="image" src="https://github.com/user-attachments/assets/3df74c2c-e78f-46e6-bd8b-629b058f37ea" />
+<img width="960" height="720" alt="image" src="https://github.com/user-attachments/assets/b1b35078-c45f-4044-9cb8-70960c5b3b6b" />
 
 ---
 
