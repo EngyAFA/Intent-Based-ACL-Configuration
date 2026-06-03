@@ -234,7 +234,7 @@ If validation succeeds, promote the candidate config to the original router conf
 If you use another topology, be sure about the changes in the topology inside :
 ```
 Helpers.env
-Helpers.norm_device
+Helpers.device_selection.norm_device
 Helpers.Finder.extract_router_facts_from_json
 Helpers.Formats.normalize_interface_name
 Batfish.preprocess._norm_intf
